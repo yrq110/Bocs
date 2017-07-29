@@ -25,8 +25,8 @@ export default {
   components: {
     Login
   },
-  computed: mapState([
-    'isLogin'
-  ])
+  computed: mapState({
+    isLogin: state => state.user.isLogin
+  })
 }
 </script>

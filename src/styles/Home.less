@@ -1,0 +1,176 @@
+@oneColor: #b64;
+@twoColor:#ff8;
+
+.home {
+  margin: 0; 
+  // padding-top: 50px;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
+  & .book {
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    margin: 30px;
+    width: 120px; height: 200px;
+    border: 5px solid #a64;
+    border-top: none;
+    background-color: #FFF;
+    border-bottom-right-radius: 15px;   
+    transition: .3s all ease;
+
+    & .cover{
+      background-color: #a64;
+      width: 115%;
+      height: 95%;
+      border-bottom-right-radius: 15px;
+      border-top-right-radius: 15px;
+
+      .less{
+        position: absolute;
+        background-color: white;
+        width: 7px;
+        height: 95%;
+        right: 10px;
+      }
+    }
+
+    & .text {
+      position: absolute;
+      top: -30px;right: 0;left: 0;
+      text-align: center;
+      font-weight: bolder;
+      letter-spacing: 3px;
+
+      & span {
+        display: inline-block;
+        transition: all .3s ease;
+      }
+    }
+
+    &:hover {
+      transform: scale(1.1);
+
+      & .text span.txt1 {
+        animation: up-down .5s .05s;
+      }
+      
+      & .text span.txt2 {
+        animation: up-down .5s .15s;
+      }
+
+      & .text span.txt3 {
+        animation: up-down .5s .25s;
+      }
+
+      & .text span.txt4 {
+        animation: up-down .5s .35s;
+      }
+    }
+  }
+
+  & .plan {
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    margin: 30px;
+    width: 120px; height: 200px;
+    background-color: #EFD171;
+    transition: .3s all ease;
+
+    & .note {
+      position: relative;
+      height: 95%;
+      width: 100%;
+      background-color: #FFE882;
+    }
+
+    & .note:after {
+      content: '';
+      border-left: 10px solid #FFF1B4;
+      border-top: 10px solid #FFF1B4;
+      border-right: 10px solid #EFD171;
+      border-bottom: 10px solid #EFD171;
+      position: absolute;
+      right: 0px;
+      bottom: 0px;
+    }
+
+    & .text {
+      position: absolute;
+      top: -30px;right: 0;left: 0;
+      text-align: center;
+      font-weight: bolder;
+      letter-spacing: 3px;
+
+      & span {
+        display: inline-block;
+        transition: all .3s ease;
+      }
+    }
+
+    &:hover {
+      transform: scale(1.1);
+
+      & .text span.txt1 {
+        animation: up-down .5s .05s;
+      }
+      
+      & .text span.txt2 {
+        animation: up-down .5s .15s;
+      }
+
+      & .text span.txt3 {
+        animation: up-down .5s .25s;
+      }
+
+      & .text span.txt4 {
+        animation: up-down .5s .35s;
+      }
+    }
+  }
+
+  & .icon-3d {
+    cursor: pointer; 
+    position: absolute;
+    bottom: 0; right: 0;
+    padding: 10px;
+    color: #fff;
+
+    &:hover {
+      animation: icon3d 200ms infinite;
+    }
+  
+  }
+}
+
+@keyframes up-down {
+  0%, 100%{
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes icon3d {
+  0% {
+    text-shadow: 5px 4px @oneColor, -5px -6px @twoColor;
+  }
+  25% {
+    text-shadow: -5px -6px @oneColor, 5px 4px @twoColor;
+  }
+  50% {
+    text-shadow: 5px -4px @oneColor, -8px 4px @twoColor;
+  }
+  75% {
+    text-shadow: -8px -4px @oneColor, -5px -4px @twoColor;
+  }
+  100% {
+    text-shadow: -5px 0 @oneColor, 5px -4px @twoColor;
+  }
+}

@@ -1,0 +1,46 @@
+.spine {
+  cursor: pointer;
+  position: relative;
+  // top: 0px;
+  bottom: 0;
+  width: 60px; height: 300px;
+  margin: 10px;
+  box-shadow: 0 10px 10px -5px black;
+  user-select: none;
+  transition: .3s all ease;
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 5px 10px -5px black;;
+  }
+
+  & .top {
+    position: absolute;
+    top: 0; right: 0;
+    bottom: 90%; left: 0;
+    border: 10px solid pink;
+    border-top: none;
+    border-bottom: none;
+
+    & .stripe {
+      position: absolute;
+      top: 10px; left: 0; right: 0; bottom: 0;
+      background: #eee;
+    }
+  }
+
+  & .main {
+    position: absolute;
+    top: 10%; right: 0;
+    bottom: 0; left: 0;
+    background: pink;
+    display: flex;
+    justify-content: center;
+
+    & .title {
+      text-align: center;
+      font-size: 2rem;
+      writing-mode: vertical-rl;
+    }
+  }
+}

@@ -2,7 +2,7 @@
   <div class="login">
     <!-- log view -->
     <login-view
-      @login="login"
+      @loginEvent="login"
     />
   </div>
 </template>
@@ -13,7 +13,7 @@ import store from '@/store'
 import LoginView from '../views/LoginView'
 import crypto from 'crypto'
 export default {
-  name: 'login',
+  name: 'Login',
   data () {
     return {
     }
@@ -26,7 +26,11 @@ export default {
       const md5 = crypto.createHash('md5')
       pwd = md5.update(pwd).digest('hex')
       console.log(`${name}: ${pwd}`)
-      store.commit('LOGIN_SUCCESS')
+      store.dispatch('loginAction', {
+        name: name,
+        pwd: pwd
+      })
+      // console.log(store.state.user.isLogin)
     }
   }
 }

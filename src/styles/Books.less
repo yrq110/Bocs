@@ -1,0 +1,41 @@
+.books {
+  margin: 0; padding-top: 50px;
+
+  & .container {
+    display: flex;
+    margin: 10px auto;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: auto; width: 80%;
+    position: relative;
+    border-bottom: 10px white solid;
+    box-shadow: 0 10px 10px -5px black;
+
+    & .bar-left {
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 10px; height: 30%;
+      background: white;
+    }
+
+    & .bar-right {
+      position: absolute;
+      bottom: 0; right: 0;
+      width: 10px; height: 30%;
+      background: white;
+    }
+
+    // &::-webkit-scrollbar {
+    //   height: 10px;
+    //   background: inherit;
+    // }
+
+    // &::-webkit-scrollbar-thumb {
+    //   height: 10px;
+    //   background: rgb(166,151,148);
+    // }
+
+  }
+}

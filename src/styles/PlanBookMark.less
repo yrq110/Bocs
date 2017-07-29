@@ -1,0 +1,64 @@
+.bookmark {
+  cursor: pointer;
+  user-select:none;
+  width: 100px; height: 300px;
+  margin: 10px; padding: 10px;
+  background: #c96;
+  position: relative;
+  transition: .3s all ease;
+  transform-origin: 50% 0;
+  box-shadow: 10px 10px 10px -5px black;
+
+  & .nail {
+    position: absolute;
+    top: 5px; 
+    width: 10px; height: 10px;
+    background: white;
+    border-radius: 50%;
+    border: 5px solid #99a;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: .3s all ease;
+  }
+
+  & .header {
+    margin: 0 auto;
+    width: 90px; height: 90px;
+    border-radius: 45px;
+    background: #feb;
+    text-align: center;
+    font-size: 50px;
+    line-height: 90px;
+  }
+
+  & .info {
+    position: absolute;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    top: 110px; left: 10px; right: 10px;
+    bottom: 10px;
+
+    & div {
+      margin: 0;
+      writing-mode: vertical-rl;
+      background: #fdb;
+    }
+
+    & span {
+      margin: 10px;
+      width: 10px; height: 10px;
+      border-radius: 5px;
+    }
+  }
+
+  &:hover {
+    transform: translate(10px, 10px);
+    box-shadow: none;
+
+    & .nail {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}

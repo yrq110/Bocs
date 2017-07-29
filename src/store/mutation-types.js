@@ -1,14 +1,13 @@
-// 网络状态
-export const NET_STATUS = 'NET_STATUS'
-// 加载中的状态
-export const LOADING_FLAG = 'LOADING_FLAG'
-// 获取初始数据
-export const HOME_DATA = 'HOME_DATA'
-// 当前浏览电影条目
-export const CURRENT_MOVIE = 'CURRENT_MOVIE'
-// 获取标签页数据
-export const CURRENT_TAG = 'CURRENT_TAG'
-// 首页查看更多
-export const CURRENT_SEE_MORE = 'CURRENT_SEE_MORE'
-// 电影短评列表
-export const CURRENT_COMMENTS = 'CURRENT_COMMENTS'
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
+
+export const LOGIN_FAILURE = 'LOGIN_FAILURE'
+
+export const ALL_BOOKS_DATA = 'ALL_BOOKS_DATA'
+
+export const ALL_PLANS_DATA = 'ALL_PLANS_DATA'
+
+export const ADD_BOOK = 'ADD_BOOK'
+
+export const DELETE_BOOK = 'DELETE_BOOK'
+
+export const UPDATE_BOOK = 'UPDATE_BOOK'

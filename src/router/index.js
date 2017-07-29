@@ -24,8 +24,8 @@ export default new Router({
       component: User
     },
     {
-      path: '/book',
-      name: 'BookList',
+      path: '/books',
+      name: 'Books',
       component: Books,
       children: [
         {
@@ -35,8 +35,8 @@ export default new Router({
       ]
     },
     {
-      path: '/plan',
-      name: 'PlanList',
+      path: '/plans',
+      name: 'Plans',
       component: Plans,
       children: [
         {

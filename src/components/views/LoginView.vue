@@ -21,14 +21,15 @@
     <div class="right-stripe"></div>
 
     <!-- lock-icon -->
-    <i class="material-icons lock" @click="login">{{  isLogin ?  'lock_open' : 'lock_outline' }}</i>
+    <!-- <i class="material-icons lock" @click="login">{{  isLogin ?  'lock_open' : 'lock_outline' }}</i> -->
+    <div class="locker"></div>
   </div>
 </template>
 
 <script>
 import store from '@/store'
 export default {
-  name: 'login-view',
+  name: 'LoginView',
   data () {
     return {
       isNameError: false,
@@ -42,7 +43,7 @@ export default {
       var name = document.querySelector('#name').value
       var pwd = document.querySelector('#pwd').value
       if (name !== '' && pwd !== '') {
-        this.$emit('login', name, pwd)
+        this.$emit('loginEvent', name, pwd)
       } else if (name === '') {
         this.isNameError = true
       } else if (pwd === '') {
@@ -56,7 +57,7 @@ export default {
       return pubs[Math.floor(Math.random() * pubs.length)]
     },
     isLogin: () => {
-      return store.state.isLogin
+      return store.state.user.isLogin
     }
   }
 }
