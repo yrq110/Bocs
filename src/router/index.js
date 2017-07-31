@@ -4,6 +4,7 @@ import Home from '@/components/containers/Home'
 import User from '@/components/containers/User'
 import Books from '@/components/containers/Books'
 import Plans from '@/components/containers/Plans'
+import NewBook from '@/components/views/NewBook'
 import BookDetail from '@/components/views/BookDetail'
 import PlanDetail from '@/components/views/PlanDetail'
 import Error from '@/components/views/Error'
@@ -26,13 +27,24 @@ export default new Router({
     {
       path: '/books',
       name: 'Books',
-      component: Books,
-      children: [
-        {
-          path: ':book_id',
-          component: BookDetail
-        }
-      ]
+      component: Books
+      // children: [
+      //   {
+      //     path: ':bookID',
+      //     name: 'BookDetail',
+      //     component: BookDetail
+      //   }
+      // ]
+    },
+    {
+      path: '/newbook',
+      name: 'NewBook',
+      component: NewBook
+    },
+    {
+      path: '/books/:bookID',
+      name: 'BookDetail',
+      component: BookDetail
     },
     {
       path: '/plans',
@@ -40,7 +52,7 @@ export default new Router({
       component: Plans,
       children: [
         {
-          path: ':plan_id',
+          path: ':planID',
           component: PlanDetail
         }
       ]

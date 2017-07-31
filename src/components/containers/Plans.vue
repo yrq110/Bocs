@@ -1,5 +1,6 @@
 <template>
   <div class="plans">
+    <top-nav />
     <div class="container">
       <plan-book-mark :data="data"/>   
       <plan-book-mark :data="data"/> 
@@ -13,6 +14,7 @@
 
 <script>
 // import { mapActions } from 'vuex'
+import TopNav from '../views/TopNav'
 import PlanBookMark from '../views/PlanBookMark'
 export default {
   name: 'Plans',
@@ -30,6 +32,7 @@ export default {
   methods: {
   },
   components: {
+    TopNav,
     PlanBookMark
   }
 }

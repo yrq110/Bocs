@@ -1,0 +1,77 @@
+.book {
+  margin: 0; 
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  
+  & .container {
+    // cursor: pointer;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    // justify-content: space-around;
+    align-items: center;
+    // width: 300px; 
+    height: 400px;
+    margin-top: 30px;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    transition: .3s all ease;
+    
+    & .info-page {
+      margin-top: 20px;
+      width: auto;
+
+      & .cell {
+        margin: 15px auto;
+
+        & .key {
+          position: relative;
+          display: inline-block;
+          padding: 0 10px;
+          line-height: 30px;
+          color: #a64;
+          border: 5px solid #a64;
+          transition: .3s all ease;
+
+          &:hover {
+            background: #a64;
+            color: #feb;
+          }
+        }
+
+        & .value {
+          position: relative;
+          display: inline-block;
+          padding: 0 10px;
+          line-height: 30px;
+          text-align: center;
+          color: #feb;
+          border: 5px solid #feb;
+          background: #a64;
+        }
+      }
+    }
+
+    & .delete {
+      cursor: pointer;
+      margin-bottom: 30px;
+      padding: 10px 0;
+      width: 30%; height: 30px;
+      background: #feb;
+      border: 5px solid red;
+      color: red;
+      font-weight: bold;
+      text-align: center;
+      text-transform: uppercase;
+      transition: .3s all ease;
+
+      &:hover {
+        background: red;
+        color: #feb;
+      }
+    }
+  }
+}

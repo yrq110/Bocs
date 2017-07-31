@@ -1,0 +1,93 @@
+.menu {
+  position: relative;
+  background-color: #20232C;
+  // height: 180px;
+  // width: 400px;
+  border-radius: 10px;
+  border-bottom: 5px solid #A6856E;
+
+  & .speaker{
+    background-color: #EDEDF0;
+    height: 3px;
+    width: 15px;
+    border-radius: 5px;
+    margin: 8px auto;
+  }
+
+  & .screen{
+    position: relative;
+    background-color: #262E41;
+    width: 90%;
+    margin: 0 auto;
+    // padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & .nav-item {
+      cursor: pointer;
+      margin: 10px;
+      width: 70px; height: 40px;
+      text-align: center;
+      font-weight: bold;
+      line-height: 40px;
+      border: 5px solid;
+      transition: .3s all ease;
+    }
+
+    & .home {
+      color: #feb;
+      border-color: #feb;
+      &:hover {
+        background: #feb;
+        color: inherit;
+      }
+    }
+    & .book {
+      color: #b64;
+      border-color: #b64;
+
+      &:hover {
+        background: #b64;
+        // color: #234;
+        color: inherit;
+      }
+    }
+    & .plan {
+      color: #ff8;
+      border-color: #ff8;
+
+      &:hover {
+        background: #ff8;
+        color: inherit;
+      }
+    }
+  }
+
+  & .button{
+    height: 15px;
+    width: 15px;
+    background-color: #EDEDF0;
+    border-radius: 50%;
+    margin: 6px auto;
+  }
+
+  & .volume_rockers{
+    position: absolute;
+    background-color: #20232C;
+    height: 24px;
+    width: 5px;
+    top: 25px;
+    left: -2px;
+    border-radius: 10px;
+  }
+}
+
+// @media screen and (max-width: 700px) {
+//   .menu {
+//     // width: 90%;
+//     & .screen {
+//       // flex-direction: column;
+//     }
+//   }
+// }

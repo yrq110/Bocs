@@ -7,7 +7,7 @@
   height: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 
   & .book {
@@ -31,7 +31,7 @@
 
       .less{
         position: absolute;
-        background-color: white;
+        background-color: #EFD171;
         width: 7px;
         height: 95%;
         right: 10px;
@@ -130,6 +130,123 @@
       & .text span.txt4 {
         animation: up-down .5s .35s;
       }
+    }
+  }
+
+  & .mug{
+    position: relative;
+    background-color: #FFFFFF;
+    margin: 10px;
+    height: 160px;
+    width: 100px;
+    border-radius: 50px;
+    border-bottom: 15px solid #A9876E;
+    transition: .3s all ease;
+
+    & .mug_head {
+      position: relative;
+      height: 85px;
+      width: 85px;
+      background-color: #C2CBDE;
+      margin-left: 7px;
+      margin-top: 7px; 
+      border-radius: 50%;
+      z-index: 2;
+
+      & .coffee {
+        position: absolute;
+        background-color: #49362E;
+        height: 72px;
+        width: 82px;
+        border-radius: 50%;
+        left: 2px;
+        bottom: 0px;
+        z-index: 1;
+      }
+
+      & .ear{
+        position: absolute;
+        height: 45px;
+        width: 50px;
+        right: -37px;
+        top: 39px;
+        border: 8px solid #fff;
+        border-radius: 50%;
+      }
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  & .passbook{
+    position: relative;
+    background-color: #26385A;
+    height: 170px;
+    width: 140px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom: 5px solid #A6856E;
+    transition: .3s all ease;
+    & .symbol{
+      position: relative;
+      border: 2px solid #FFDAA0;
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      margin: 30px auto;
+
+      & .h_line{
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        border-top: 2px solid #FFDAA0;
+      }
+
+      & .v_line{
+        position: absolute;
+        height: 100%;
+        left: 50%;
+        border-right: 2px solid #FFDAA0;
+      }
+
+      & .inner_circle{
+        position: absolute;
+        height: 100%;
+        width: 50%;
+        border-radius: 50%;
+        border: 2px solid #FFDAA0;
+        left: 25%;
+        top: -2px;
+      }
+    }
+
+    & .details1{
+      height: 2px;
+      width: 10%;
+      background-color: #F9FAFB;
+      margin: 15px auto;
+    }
+
+    & .details2{
+      height: 4px;
+      width: 30%;
+      border-radius: 5px;
+      background-color: #FFDAA0;
+      margin: 10px auto;
+    }
+
+    & .details3{
+      height: 4px;
+      width: 40%;
+      border-radius: 5px;
+      background-color: #F9FAFB;
+      margin: 10px auto;
+    }
+
+    &:hover {
+      transform: scale(1.1);
     }
   }
 

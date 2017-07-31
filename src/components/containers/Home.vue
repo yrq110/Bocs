@@ -1,5 +1,11 @@
 <template>
   <div class="home">
+    <div class="mug">
+      <div class="mug_head">
+        <div class="coffee"></div>
+        <div class="ear"></div>
+      </div>
+    </div>
     <div class="book" @click="goBooks">
       <div class="text">
         <span class="txt1">我</span>
@@ -20,13 +26,21 @@
       </div>
       <div class="note"></div>
     </div>
-    <i class="fa fa-github fa-4x icon-3d" @click="goGithub"></i> 
+    <div class="passbook hover">
+      <div class="symbol">
+        <div class="h_line"></div>
+        <div class="v_line"></div>
+        <div class="inner_circle"></div>
+      </div>
+      <div class="details1"></div>
+      <div class="details2"></div>
+      <div class="details3"></div>
+    </div>
+    <i class="fa fa-github fa-4x icon-3d" @click="goGitHub"></i> 
   </div>
 </template>
 
 <script>
-// import store from '@/store'
-import { mapActions } from 'vuex'
 export default {
   name: 'Home',
   data () {
@@ -34,9 +48,6 @@ export default {
     }
   },
   methods: {
-    ...mapActions([
-      'addBook'
-    ]),
     goBooks: function () {
       this.$router.push({
         path: '/books'
@@ -47,7 +58,7 @@ export default {
         path: '/plans'
       })
     },
-    goGithub: function () {
+    goGitHub: function () {
       location.href = 'https://github.com/yrq110'
     }
   }

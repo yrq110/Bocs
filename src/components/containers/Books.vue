@@ -1,20 +1,21 @@
 <template>
   <div class="books">
+    <top-nav />
     <div class="container">
       <div class="bar-left"></div>
       <div class="bar-right"></div>
+
       <book-spine 
         :mainColor="'pink'"
-        :bookTitle="'读书计划'"
+        :title="'添加新书'"
+        @clickEvent="addNewBook"
       />
-      <book-spine 
-        :mainColor="'pink'"
-        :bookTitle="'添加新书'"
-      />
-      <template v-for="title in titles">
+
+      <template v-for="book in booksData">
         <book-spine 
           :mainColor="mainColor"
-          :bookTitle="title"
+          :title="book.name"
+          @clickEvent="goBookDetail(book.id)"
         />
       </template>
     </div>
@@ -22,23 +23,53 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapState } from 'vuex'
+import TopNav from '../views/TopNav'
 import BookSpine from '../views/BookSpine'
 export default {
   name: 'Books',
   data () {
     return {
       mainColor: '#a64',
-      // title: 'text',
       titles: ['骆驼祥子', '孔乙己', '三个火枪手', '基督山伯爵', '骆驼祥子', '孔乙己', '阿Q正传', '三个火枪手', '基督山伯爵', '骆驼祥子', '孔乙己', '阿Q正传', '三个火枪手', '基督山伯爵']
     }
+  },
+  created: function () {
+    this.$store.dispatch('flashBooks')
   },
   methods: {
     ...mapActions([
       'addBook'
-    ])
+    ]),
+    returnDesktop: function () {
+      console.log('click')
+      this.$router.push({
+        path: '/'
+      })
+    },
+    addNewBook: function () {
+      this.$router.push({
+        name: 'NewBook'
+      })
+    },
+    goBookDetail: function (id) {
+      this.$router.push({
+        name: 'BookDetail',
+        params: {
+          bookID: id
+        }
+      })
+    }
+  },
+  computed: {
+    ...mapState({
+      booksData: function (state) {
+        return state.user.books
+      }
+    })
   },
   components: {
+    TopNav,
     BookSpine
   }
 }

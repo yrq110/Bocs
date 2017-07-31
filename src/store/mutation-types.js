@@ -2,9 +2,11 @@ export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
 
 export const LOGIN_FAILURE = 'LOGIN_FAILURE'
 
-export const ALL_BOOKS_DATA = 'ALL_BOOKS_DATA'
+export const SET_BOOKS_DATA = 'SET_BOOKS_DATA'
 
-export const ALL_PLANS_DATA = 'ALL_PLANS_DATA'
+export const FLASH_BOOKS = 'FLASH_BOOKS'
+
+export const SET_PLANS_DATA = 'SET_PLANS_DATA'
 
 export const ADD_BOOK = 'ADD_BOOK'
 

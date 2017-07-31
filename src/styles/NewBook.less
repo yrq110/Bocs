@@ -1,0 +1,175 @@
+.new-book {
+  margin: 0; 
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  
+  & .container {
+    // cursor: pointer;
+    position: relative;
+    width: 300px; 
+    height: 400px;
+    margin-top: 30px;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    transition: .3s all ease;
+
+    & .section {
+      position: absolute;
+      width: 100%; height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      transition: all 1s ease;
+    }
+
+    & .search-page {
+      z-index: 2;
+      transform-origin: 0;
+      position: relative;
+
+      & .search-bar {
+        position: relative;
+        width: 100%; margin: 0 auto;
+        perspective: 1000px;
+
+        & form {
+          position: relative;
+          transform: translateZ(-20px);
+          transform-style: preserve-3d;
+          height: 40px;
+          transition: all 0.35s;
+          text-align: center;
+
+          .cuboid-text {
+            margin: 0;
+            line-height: 40px;
+            background: #d95;
+          }
+
+          .loader {
+            background: #d95;
+            animation: phase 1s infinite;
+          }
+
+          & div.text {
+            position: absolute; 
+            top: 0; left: 0; 
+            width: 100%; height: 40px;
+            transform: rotateX(0deg) translateZ(20px);
+          }
+          
+          & div.submit {
+            position: absolute; 
+            top: 0; left: 0; 
+            width: 100%; height: 40px;
+            transform: rotateX(-90deg) translateZ(20px);
+
+            #title {
+              background: white; 
+              outline: none; 
+              border: 0 none;
+              font: inherit; 
+              text-align: left; 
+              color: #c66;
+              display: block;
+              padding: 0 10px;
+              width: 100%; height: 40px;
+              box-sizing: border-box;
+            }
+
+            #submit {
+              display: none;
+            }
+
+            .submit-icon, .reset-icon {
+              position: absolute; top: 0; right: 0;
+              color: rgba(0, 0, 0, 0.25);
+              line-height: 40px; padding: 0 10px;
+              transition: all 0.5s;
+              cursor: pointer;
+            }
+
+            .active {color: #c66;}
+          }
+          
+          & div.load {
+            position: absolute; 
+            top: 0; left: 0; 
+            width: 100%; height: 40px;
+            transform: rotateX(-180deg) translateZ(20px);
+
+            & .loader {
+              animation: phase 1s infinite;
+            }
+          }
+
+          & div.result {
+            position: absolute; 
+            top: 0; left: 0; 
+            width: 100%; height: 40px;
+            transform: rotateX(-270deg) translateZ(20px);
+          }
+          
+          &:hover {
+            transform: translateZ(-20px) rotateX(90deg);
+          }
+        }
+
+        & .ready {
+          transform: translateZ(-20px) rotateX(90deg);
+        }
+
+        & .loading {
+          transform: translateZ(-20px) rotateX(180deg);
+        }
+
+        & .complete {
+          transform: translateZ(-20px) rotateX(270deg);
+        }
+      }
+
+      & .poster img{
+        position: relative;
+        margin-top: 20px;
+        width: 350px; height: 0;        
+      }
+
+      & .next {
+        cursor: pointer;
+        position: relative;
+        margin: 20px 0;
+        width: 100%; height: 40px;
+        line-height: 40px;
+        text-align: center;
+        background: inherit;
+        border: 5px solid #d95;
+        color: #d95;
+        transition: .3s all ease;
+        &:hover {
+          background: #d95;
+          color: white;
+        }
+        
+      }
+      & .fadeout {
+        animation: fadeout 1s ease-in-out forwards;
+      }
+    }
+  }
+
+  @keyframes phase {
+    50% {
+      background: #c66;
+    }
+  }
+
+  @keyframes fadeout {
+    100% {
+      height: 400px;
+    }
+  }
+}
