@@ -16,10 +16,10 @@
     // width: 300px; 
     height: 400px;
     margin-top: 30px;
-    perspective: 1000px;
-    transform-style: preserve-3d;
     transition: .3s all ease;
-    
+    & .cover-page img {
+      transition: .3s all ease;
+    }
     & .info-page {
       margin-top: 20px;
       width: auto;
@@ -34,6 +34,7 @@
           line-height: 30px;
           color: #a64;
           border: 5px solid #a64;
+          font-weight: bold;
           transition: .3s all ease;
 
           &:hover {

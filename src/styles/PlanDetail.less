@@ -1,0 +1,157 @@
+.plan {
+  margin: 0; 
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  & .container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: .3s all ease;
+    position: relative;
+    margin: 20px;
+    background-color: #EFD171;
+
+    & .note {
+      position: relative;
+      padding: 20px 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 95%;
+      width: 100%;
+      background-color: #FFE882;
+
+      &:after {
+        content: '';
+        border-left: 10px solid #FFF1B4;
+        border-top: 10px solid #FFF1B4;
+        border-right: 10px solid #EFD171;
+        border-bottom: 10px solid #EFD171;
+        position: absolute;
+        right: 0px;
+        bottom: 0px;
+      }
+
+      & .info-page {
+        margin-top: 20px;
+        width: auto;
+
+        & .cell {
+          margin: 15px auto;
+          padding-bottom: 5px;
+          border-bottom: 3px dashed black;
+
+          & .key {
+            position: relative;
+            display: inline-block;
+            padding: 0 10px;
+            line-height: 30px;
+            color: #a64;
+            border: 5px solid #a64;
+            font-weight: bold;
+            transition: .3s all ease;
+
+            &:hover {
+              background: #a64;
+              color: #feb;
+            }
+          }
+
+          & .value {
+            position: relative;
+            display: inline-block;
+            padding: 0 10px;
+            line-height: 30px;
+            text-align: center;
+            color: #feb;
+            border: 5px solid #feb;
+            background: #a64;
+          }
+        }
+      }
+
+      & .pencil{
+        position: absolute;
+        background-color: #feb;
+        width: 15px;
+        height: 120px;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+
+        & .pencil-bottom{
+          position: absolute;
+          bottom: 0px;
+          background-color: #FF859F;
+          width: 100%;
+          height: 15px;
+          border-bottom: 5px solid #A9876E;
+        }
+
+        & .pencil-nip{
+          border-bottom: 22px solid #F3C6A9;
+          border-left: 8px solid transparent;
+          border-right: 7px solid transparent;
+          width: 0;
+          height: 0;
+          margin-top: -22px;
+
+          & .pencil-tip{
+            border-bottom: 8px solid #151822;
+            border-left: 3px solid transparent;
+            border-right: 3px solid transparent;
+            height: 0px;
+            width: 0px;
+            top: -22px;
+            position: absolute;
+            left: 5px;
+          }
+        } 
+      }
+
+      & .erase {
+        cursor: pointer;
+        width: 80px; height: 40px;
+        background: white;
+        position: relative;
+        transition: .3s all ease;
+
+        &:before {
+          content: '';
+          position: absolute;
+          left: -10px; top: 50%;
+          height: 36px; width: 10px;
+          background: grey;
+          transform: translateY(-50%);
+          border-top-left-radius: 10px;
+          border-bottom-left-radius: 10px;
+        }
+
+        &:after {
+          content: '';
+          position: absolute;
+          left: 0; top: 5px;
+          height: 5px; width: 100%;
+          background: blue;
+        }
+
+        & .banner {
+          position: absolute;
+          font-weight: bold;
+          white-space: nowrap;
+          bottom: 5px; left: 50%;
+          transform: translateX(-50%);
+        }
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+}

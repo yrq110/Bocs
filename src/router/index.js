@@ -49,13 +49,12 @@ export default new Router({
     {
       path: '/plans',
       name: 'Plans',
-      component: Plans,
-      children: [
-        {
-          path: ':planID',
-          component: PlanDetail
-        }
-      ]
+      component: Plans
+    },
+    {
+      path: '/plans/:planID',
+      name: 'PlanDetail',
+      component: PlanDetail
     },
     {
       path: '*',

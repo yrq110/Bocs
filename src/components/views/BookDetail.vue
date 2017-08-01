@@ -4,17 +4,17 @@
     <div class="container">
       <div class="cover-page">
         <!-- {{ currentBookData }} page -->
-        <img :src="currentBookData.cover" />
+        <img v-lazy="currentBookData.cover" />
       </div>
       <div class="info-page">
         <template v-for="(value, key) in currentBookData.info">
           <div class="cell">
-            <div class="key">{{ key }}</div>
+            <div class="key">{{ keyMap[key] }}</div>
             <div class="value">{{ value }}</div>
           </div>
         </template>
       </div>
-      <div @click="deleteBook" class="delete">delete</div>
+      <div @click="deleteBook" class="delete">删除</div>
     </div>
   </div>
 </template>
@@ -25,8 +25,11 @@ export default {
   name: 'BookDetail',
   data () {
     return {
-      detail: {
-        title: 'JavaScript'
+      keyMap: {
+        'author': '作者',
+        'date': '出版时间',
+        'publisher': '出版社',
+        'url': '京东'
       }
     }
   },

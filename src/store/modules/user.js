@@ -79,6 +79,18 @@ const actions = {
 
   flashBooks ({ commit }) {
     commit(types.FLASH_BOOKS)
+  },
+
+  addPlan ({ commit }, plan) {
+    commit(types.ADD_PLAN, plan)
+  },
+
+  deletePlan ({ commit }, planID) {
+    commit(types.DELETE_PLAN, planID)
+  },
+
+  flashPlans ({ commit }) {
+    commit(types.FLASH_PLANS)
   }
 }
 
@@ -99,6 +111,9 @@ const mutations = {
   [types.SET_PLANS_DATA] (state, plans) {
     lockr.set('plans', plans)
     state.plans = plans
+  },
+  [types.FLASH_PLANS] (state) {
+    state.plans = lockr.get('plans')
   },
   [types.ADD_BOOK] (state, book) {
     if (state.books.filter(e => e.id === book.id).length === 0) {
@@ -121,6 +136,21 @@ const mutations = {
         e = book
       }
     })
+  },
+  [types.ADD_PLAN] (state, plan) {
+    if (state.plans.filter(e => e.id === plan.id).length === 0) {
+      state.plans = [
+        ...state.plans,
+        plan
+      ]
+      lockr.set('plans', state.plans)
+    } else {
+      state.alertMessage = '已添加'
+    }
+  },
+  [types.DELETE_PLAN] (state, planID) {
+    state.plans = state.plans.filter(e => e.id !== planID)
+    lockr.set('plans', state.plans)
   }
 }
 

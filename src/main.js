@@ -4,8 +4,10 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './store'
+import VueLazyload from 'vue-lazyload'
 import axios from 'axios'
 
+Vue.use(VueLazyload)
 Vue.prototype.$http = axios
 Vue.config.productionTip = false
 
