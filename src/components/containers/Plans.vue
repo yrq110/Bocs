@@ -35,24 +35,24 @@ export default {
   },
   methods: {
     addNewPlan: function () {
-      this.$store.dispatch('addPlan', {
-        header: '权',
-        begin: '2017-7-10',
-        end: '2017-7-20',
-        page: 67,
-        rate: '40%',
-        bookID: 1478,
-        id: 1001
-      })
+      // this.$store.dispatch('addPlan', {
+      //   header: '权',
+      //   begin: '2017-7-10',
+      //   end: '2017-7-20',
+      //   page: 67,
+      //   rate: '40%',
+      //   bookID: 1478,
+      //   id: 1001
+      // })
       // this.$router.push({
       //   name: 'PlanDetail',
       //   params: {
       //     planID: 1000
       //   }
       // })
-      // this.$router.push({
-      //   name: 'NewPlan'
-      // })
+      this.$router.push({
+        name: 'NewPlan'
+      })
     },
     goPlanDetail (id) {
       this.$router.push({
