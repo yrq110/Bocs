@@ -55,12 +55,11 @@ export default {
         let plans = state.user.plans
         if (typeof (plans) !== 'undefined') {
           plans.map(e => {
-            // let plan = e
             let book = state.user.books.filter(r => {
               // console.log(plan)
               return r.id === e.bookID
             })
-            console.log(book)
+            // console.log(book)
             e.header = book.length !== 0 ? book[0].title.slice(0, 1) : '无'
           })
         } else {

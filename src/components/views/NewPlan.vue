@@ -7,9 +7,9 @@
       <div class="note">
         <div class="info-page">
           <div class="cell book">
-            {{ bookID }}
-            <div class="btn" @click="selectBook" v-show="hasBook">选择图书</div>
-            <div class="btn" @click="addBook" v-show="hasBook">添加图书</div>
+            <div v-show="hasBook" class="title">{{ getBookTitle(bookID) }}</div>
+            <div class="btn" @click="selectBook" v-show="!hasBook">选择图书</div>
+            <div class="btn" @click="addBook" v-show="!hasBook">添加图书</div>
           </div>
           <div class="cell">
             <div class="key">起始日期</div>
@@ -46,8 +46,11 @@ export default {
   name: 'PlanDetail',
   data () {
     return {
-      hasBook: true
+      hasBook: false
     }
+  },
+  created: function () {
+    this.$store.dispatch('flashBooks')
   },
   mounted () {
     let date = new Date()
@@ -55,14 +58,14 @@ export default {
     document.querySelector('#begin-month').value = date.getMonth() + 1
     document.querySelector('#begin-day').value = date.getDay() - 1
     document.querySelector('#end-year').value = date.getFullYear()
+
+    this.hasBook = typeof (this.$router.history.current.params.bookid) !== 'undefined'
   },
   methods: {
     async newPlanDetail () {
       let beginDate = document.querySelector('#begin-year').value + '-' + document.querySelector('#begin-month').value + '-' + document.querySelector('#begin-day').value
       let endDate = document.querySelector('#end-year').value + '-' + document.querySelector('#end-month').value + '-' + document.querySelector('#end-day').value
       let page = document.querySelector('#page').value
-      let info = `${beginDate} - ${endDate} - ${page}`
-      console.log(info)
       let id = Math.floor(Math.random() * 10000)
       await this.$store.dispatch('addPlan', {
         id: id,
@@ -78,18 +81,22 @@ export default {
         }
       })
     },
+    getBookTitle (id) {
+      let book = this.$store.state.user.books.filter(e => {
+        return e.id === id
+      })
+      console.log(book)
+      return book.length !== 0 ? book[0].title : 'null'
+    },
     selectBook () {
+      this.$router.push({
+        path: '/books'
+      })
     },
     addBook () {
       this.$router.push({
         path: '/newbook'
       })
-    },
-    nowDate () {
-      let date = new Date()
-      console.log(date.getFullYear())
-      console.log(date.getMonth() + 1)
-      console.log(date.getDay() - 1)
     }
   },
   computed: {

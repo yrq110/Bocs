@@ -5,7 +5,7 @@
       <div class="note">
         <div class="info-page">
           <div class="cell">
-            <div class="title">
+            <div class="title" @click="goBookDetail(currentPlanData.bookID)">
               {{ bookTitle }}
             </div>
           </div>
@@ -49,7 +49,8 @@ export default {
   name: 'PlanDetail',
   data () {
     return {
-      isEditing: false
+      isEditing: false,
+      isBookAvailable: true
     }
   },
   created: function () {
@@ -57,6 +58,17 @@ export default {
     this.$store.dispatch('flashBooks')
   },
   methods: {
+    goBookDetail (id) {
+      console.log('title')
+      if (this.isBookAvailable) {
+        this.$router.push({
+          name: 'BookDetail',
+          params: {
+            bookID: id
+          }
+        })
+      }
+    },
     editPlan () {
       if (this.isEditing) {
         let endDate = document.querySelector('#end-year').value + '-' + document.querySelector('#end-month').value + '-' + document.querySelector('#end-day').value
@@ -96,6 +108,7 @@ export default {
       let book = this.$store.state.user.books.filter(e => {
         return e.id === this.currentPlanData.bookID
       })
+      this.isBookAvailable = book.length !== 0
       // console.log(book)
       return book.length !== 0 ? book[0].title : '此书已删除'
     }

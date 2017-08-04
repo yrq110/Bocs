@@ -45,6 +45,22 @@
         & .book {
           display: flex;
           justify-content: space-around;
+
+          & .title {
+            padding: 5px 10px;
+            background: #feb;
+            color: #a64;
+            font-weight: bold;
+            text-align: center;
+            border-left: 3px solid #a64;
+            transition: .3s all ease;
+
+            &:hover {
+              border-left-color: #feb;
+              background: #a64;
+              color: #feb;
+            }
+          }
         }
 
         & .cell {
