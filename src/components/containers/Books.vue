@@ -14,7 +14,7 @@
       <template v-for="book in booksData">
         <book-spine 
           :mainColor="mainColor"
-          :title="book.name"
+          :title="book.title"
           @clickEvent="goBookDetail(book.id)"
         />
       </template>
@@ -23,6 +23,7 @@
 </template>
 
 <script>
+// import RGBaster from 'rgbaster'
 import { mapActions, mapState } from 'vuex'
 import TopNav from '../views/TopNav'
 import BookSpine from '../views/BookSpine'
@@ -30,8 +31,7 @@ export default {
   name: 'Books',
   data () {
     return {
-      mainColor: '#a64',
-      titles: ['骆驼祥子', '孔乙己', '三个火枪手', '基督山伯爵', '骆驼祥子', '孔乙己', '阿Q正传', '三个火枪手', '基督山伯爵', '骆驼祥子', '孔乙己', '阿Q正传', '三个火枪手', '基督山伯爵']
+      colorArr: ['#b64', '#ff9', '#ffc', '#ea5', '#964', '#feb']
     }
   },
   created: function () {
@@ -41,18 +41,18 @@ export default {
     ...mapActions([
       'addBook'
     ]),
-    returnDesktop: function () {
+    returnDesktop () {
       console.log('click')
       this.$router.push({
         path: '/'
       })
     },
-    addNewBook: function () {
+    addNewBook () {
       this.$router.push({
         name: 'NewBook'
       })
     },
-    goBookDetail: function (id) {
+    goBookDetail (id) {
       this.$router.push({
         name: 'BookDetail',
         params: {
@@ -66,7 +66,12 @@ export default {
       booksData: function (state) {
         return state.user.books
       }
-    })
+    }),
+    mainColor () {
+      let color = this.colorArr[Math.floor(Math.random() * this.colorArr.length)]
+      console.log(color)
+      return color
+    }
   },
   components: {
     TopNav,

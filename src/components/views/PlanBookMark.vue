@@ -6,7 +6,6 @@
       <div class="begin"><span>起</span>{{ data.begin }}</div>
       <div class="end"><span>止</span>{{ data.end }}</div>
       <div class="page"><span>页数</span>{{ data.page }}</div>
-      <div class="rate"><span>已读</span>{{ data.rate }}</div>
     </div>
   </div>
 </template>
@@ -18,21 +17,18 @@ export default {
     return {
     }
   },
+  mounted () {
+    console.log(this.data)
+  },
   props: {
-    data: {
-      type: Object,
-      default: {
-        header: '南',
-        begin: '2017-7-09',
-        end: '2017-7-22',
-        page: '67',
-        rate: '50%'
-      }
-    }
+    data: Object
   },
   methods: {
-    clickEvent: function () {
+    clickEvent () {
       this.$emit('clickEvent')
+    },
+    getFirstLetter (str) {
+      return str.slice(0, 1)
     }
   }
 }

@@ -11,58 +11,16 @@ const state = {
 const getters = {}
 
 const actions = {
-  loginAction ({ commit, rootState }, { name, pwd }) {
-    const usrName = name
-    if (usrName === '123' && pwd === '123') {
-      commit(types.LOGIN_SUCCESS)
-      commit(types.SET_BOOKS_DATA, [
-        {
-          id: 0,
-          name: 'hello'
-        },
-        {
-          id: 1,
-          name: 'hello'
-        }
-      ])
-
-      commit(types.SET_PLANS_DATA, [
-        {
-          id: 0,
-          beginDate: '2017-03-09',
-          endDate: '2017-03-15',
-          left: '10',
-          progress: 50
-        },
-        {
-          id: 1,
-          beginDate: '',
-          endDate: '',
-          progress: 50
-        },
-        {
-          id: 2,
-          beginDate: '',
-          endDate: ''
-        }
-      ])
-    } else {
-      commit(types.LOGIN_FAILURE)
-    }
-  },
-
+  // loginAction ({ commit, rootState }, { name, pwd }) {
+  //   const usrName = name
+  //   if (usrName === '123' && pwd === '123') {
+  //     commit(types.LOGIN_SUCCESS)
+  //   } else {
+  //     commit(types.LOGIN_FAILURE)
+  //   }
+  // },
   addBook ({ commit }, book) {
-    commit(types.ADD_BOOK, {
-      id: book.id,
-      name: book.name,
-      cover: 'http://img11.360buyimg.com/n1/jfs/t2047/63/2033152973/398005/5ea9044e/56ea5e6aN38c0f2b8.jpg',
-      info: {
-        author: 'yrq110',
-        date: '2017',
-        publisher: '机械工业出版社',
-        url: 'http://item.jd.com/10974436.html'
-      }
-    })
+    commit(types.ADD_BOOK, book)
   },
 
   deleteBook ({ commit }, bookID) {
@@ -87,6 +45,10 @@ const actions = {
 
   deletePlan ({ commit }, planID) {
     commit(types.DELETE_PLAN, planID)
+  },
+
+  updatePlan ({ commit }, plan) {
+    commit(types.UPDATE_PLAN, plan)
   },
 
   flashPlans ({ commit }) {
@@ -150,6 +112,14 @@ const mutations = {
   },
   [types.DELETE_PLAN] (state, planID) {
     state.plans = state.plans.filter(e => e.id !== planID)
+    lockr.set('plans', state.plans)
+  },
+  [types.UPDATE_PLAN] (state, plan) {
+    state.plans.map(e => {
+      if (e.id === plan.id) {
+        e = plan
+      }
+    })
     lockr.set('plans', state.plans)
   }
 }

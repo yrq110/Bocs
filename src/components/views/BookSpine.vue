@@ -4,7 +4,7 @@
       <div class="stripe"></div>
     </div>
     <div class="main" :style="{backgroundColor:mainColor}">
-      <div class="title fit">{{ title }}</div>
+      <div class="title">{{ title }}</div>
     </div>
   </div>
 </template>

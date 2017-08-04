@@ -2,19 +2,32 @@
   <div class="book">
     <top-nav />
     <div class="container">
-      <div class="cover-page">
+      <div class="cover-page section">
         <!-- {{ currentBookData }} page -->
-        <img v-lazy="currentBookData.cover" />
+        <img v-lazy="currentBookData.cover_img" />
       </div>
-      <div class="info-page">
-        <template v-for="(value, key) in currentBookData.info">
-          <div class="cell">
-            <div class="key">{{ keyMap[key] }}</div>
-            <div class="value">{{ value }}</div>
-          </div>
-        </template>
+      <div class="info-page section ">
+        <div class="cell">
+          <div class="key">书名</div>
+          <div class="value">{{ currentBookData.title }}</div>
+        </div>
+        <div class="cell">
+          <div class="key">作者</div>
+          <div class="value">{{ currentBookData.author }}</div>
+        </div>
+        <div class="cell">
+          <div class="key">出版时间</div>
+          <div class="value">{{ currentBookData.date }}</div>
+        </div>
+        <div class="cell">
+          <div class="key">出版社</div>
+          <div class="value">{{ currentBookData.publisher }}</div>
+        </div>
       </div>
-      <div @click="deleteBook" class="delete">删除</div>
+      <div class="function">
+        <div @click="addPlan" class="plan-btn">添加本书计划</div>
+        <div @click="deleteBook" class="del-btn">删除</div>
+      </div>
     </div>
   </div>
 </template>
@@ -25,12 +38,6 @@ export default {
   name: 'BookDetail',
   data () {
     return {
-      keyMap: {
-        'author': '作者',
-        'date': '出版时间',
-        'publisher': '出版社',
-        'url': '京东'
-      }
     }
   },
   created: function () {
@@ -50,10 +57,19 @@ export default {
     }
   },
   methods: {
-    deleteBook () {
-      this.$store.dispatch('deleteBook', this.currentBookData.id)
+    async deleteBook () {
+      await this.$store.dispatch('deleteBook', this.currentBookData.id)
       this.$router.push({
         path: '/books'
+      })
+    },
+    addPlan () {
+      console.log(`add ${this.currentBookData.id} plan`)
+      this.$router.push({
+        name: 'NewPlanWithBook',
+        params: {
+          bookid: this.currentBookData.id
+        }
       })
     }
   },

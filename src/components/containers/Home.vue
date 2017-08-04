@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <logo-pad class="nav"/>
     <div class="mug">
       <div class="mug_head">
         <div class="coffee"></div>
@@ -41,6 +42,7 @@
 </template>
 
 <script>
+import LogoPad from '../views/LogoPad'
 export default {
   name: 'Home',
   data () {
@@ -61,6 +63,9 @@ export default {
     goGitHub: function () {
       location.href = 'https://github.com/yrq110'
     }
+  },
+  components: {
+    LogoPad
   }
 }
 </script>

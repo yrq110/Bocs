@@ -2,6 +2,7 @@
   margin: 0; 
   padding: 20px 0;
   display: flex;
+  position: relative;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
@@ -9,25 +10,52 @@
   & .container {
     // cursor: pointer;
     position: relative;
+    width: 60%;
     display: flex;
-    flex-direction: column;
-    // justify-content: space-around;
-    align-items: center;
-    // width: 300px; 
-    height: 400px;
+    flex-flow: row wrap;
     margin-top: 30px;
     transition: .3s all ease;
-    & .cover-page img {
-      transition: .3s all ease;
+
+    & .cover-page {
+      flex: 1 auto;
+      order: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      & img {
+        position: relative;
+        right: 0;
+        transition: .3s all ease;
+      }
     }
+
     & .info-page {
+      flex: 1 auto;
+      order: 2;
       margin-top: 20px;
+      margin-left: 20px;
       width: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-end;
 
       & .cell {
-        margin: 15px auto;
-
+        width: 100%;
+        margin: 5px auto;
+        
         & .key {
+          position: relative;
+          display: inline-block;
+          padding: 0 10px;
+          line-height: 30px;
+          text-align: center;
+          color: #feb;
+          border: 5px solid #feb;
+          background: #a64;
+        }
+
+        & .value {
           position: relative;
           display: inline-block;
           padding: 0 10px;
@@ -42,37 +70,72 @@
             color: #feb;
           }
         }
+      }
+    }
 
-        & .value {
-          position: relative;
-          display: inline-block;
-          padding: 0 10px;
-          line-height: 30px;
-          text-align: center;
+    & .function {
+      flex: 1 100%;
+      order: 3;
+      cursor: pointer;
+      margin: 20px 0;
+      // padding: 10px 0;
+      min-height: 40px;
+      display: flex;
+      justify-content: center;
+
+      & .plan-btn {
+        margin: 0 10px;
+        padding: 3px;
+        min-width: 20%;
+        white-space: nowrap;
+        background: #feb;
+        border: 5px solid #b64;
+        color: #b64;
+        // line-height: 40px;
+        font-weight: bold;
+        text-align: center;
+        text-transform: uppercase;
+        transition: .3s all ease;
+
+        &:hover {
+          background: #b64;
           color: #feb;
-          border: 5px solid #feb;
-          background: #a64;
+        }
+      }
+
+      & .del-btn {
+        margin: 0 10px;
+        padding: 3px;
+        min-width: 20%; 
+        background: #feb;
+        border: 5px solid red;
+        color: red;
+        font-weight: bold;
+        // line-height: 40px;
+        text-align: center;
+        text-transform: uppercase;
+        transition: .3s all ease;
+
+        &:hover {
+          background: red;
+          color: #feb;
         }
       }
     }
+  }
+}
 
-    & .delete {
-      cursor: pointer;
-      margin-bottom: 30px;
-      padding: 10px 0;
-      width: 30%; height: 30px;
-      background: #feb;
-      border: 5px solid red;
-      color: red;
-      font-weight: bold;
-      text-align: center;
-      text-transform: uppercase;
-      transition: .3s all ease;
+@media screen and (max-width: 600px) {
+  .book .container {
+    width: 90%;
 
-      &:hover {
-        background: red;
-        color: #feb;
-      }
+    & img {
+      max-width:100%; 
+    }
+
+    & .cover-page, .info-page {
+      flex: 1 100%;
     }
   }
+  
 }

@@ -6,15 +6,34 @@
       <!-- {{ timeFromNow }} -->
       <div class="note">
         <div class="info-page">
-          <template v-for="(value, key) in currentPlanData">
-            <div class="cell">
-              <div class="key">{{ key }}</div>
-              <div class="value">{{ value }}</div>
-            </div>
-          </template>
+          <div class="cell book">
+            {{ bookID }}
+            <div class="btn" @click="selectBook" v-show="hasBook">选择图书</div>
+            <div class="btn" @click="addBook" v-show="hasBook">添加图书</div>
+          </div>
+          <div class="cell">
+            <div class="key">起始日期</div>
+            <input type="number" id="begin-year" class="input date" placeholder="年" autocomplete="off"/> -
+            <input type="number" id="begin-month" class="input date" placeholder="月" autocomplete="off"/> -
+            <input type="number" id="begin-day" class="input date" placeholder="日" autocomplete="off"/>
+          </div>
+          <div class="cell">
+            <div class="key">截止日期</div>
+            <input type="number" id="end-year" class="input date" placeholder="年" autocomplete="off"/> -
+            <input type="number" id="end-month" class="input date" placeholder="月" autocomplete="off"/> -
+            <input type="number" id="end-day" class="input date" placeholder="日" autocomplete="off"/>
+          </div>
+          <div class="cell">
+            <div class="key">页数</div>
+            <input type="number" id="page" class="input" placeholder="输入已读页数" autocomplete="off"/>
+          </div>
         </div>
-        <div class="erase" @click="deletePlan">
-          <div class="banner">添加牌</div>
+        <div class="pencil">
+          <div class="pencil-bottom"></div>
+          <div class="pencil-nip">
+            <div class="pencil-tip"></div>
+          </div>
+          <div class="text" @click="newPlanDetail">添加</div>
         </div>
       </div>
     </div>
@@ -27,15 +46,30 @@ export default {
   name: 'PlanDetail',
   data () {
     return {
+      hasBook: true
     }
   },
+  mounted () {
+    let date = new Date()
+    document.querySelector('#begin-year').value = date.getFullYear()
+    document.querySelector('#begin-month').value = date.getMonth() + 1
+    document.querySelector('#begin-day').value = date.getDay() - 1
+    document.querySelector('#end-year').value = date.getFullYear()
+  },
   methods: {
-    newPlanDetail: function () {
-      let title = document.querySelector('#title').value
+    async newPlanDetail () {
+      let beginDate = document.querySelector('#begin-year').value + '-' + document.querySelector('#begin-month').value + '-' + document.querySelector('#begin-day').value
+      let endDate = document.querySelector('#end-year').value + '-' + document.querySelector('#end-month').value + '-' + document.querySelector('#end-day').value
+      let page = document.querySelector('#page').value
+      let info = `${beginDate} - ${endDate} - ${page}`
+      console.log(info)
       let id = Math.floor(Math.random() * 10000)
-      this.$store.dispatch('addPlan', {
+      await this.$store.dispatch('addPlan', {
         id: id,
-        name: title
+        bookID: this.bookID,
+        begin: beginDate,
+        end: endDate,
+        page: page
       })
       this.$router.push({
         name: 'PlanDetail',
@@ -43,19 +77,36 @@ export default {
           planID: id
         }
       })
+    },
+    selectBook () {
+    },
+    addBook () {
+      this.$router.push({
+        path: '/newbook'
+      })
+    },
+    nowDate () {
+      let date = new Date()
+      console.log(date.getFullYear())
+      console.log(date.getMonth() + 1)
+      console.log(date.getDay() - 1)
     }
   },
   computed: {
-    id: function () {
+    id () {
       return this.$router.history.current.params.planID
     },
-    currentPlanData: function () {
+    currentPlanData () {
       const bid = this.id
       for (let plan of this.$store.state.user.plans) {
         if (plan.id === parseInt(bid)) {
           return plan
         }
       }
+    },
+    bookID () {
+      // console.log(this.$router)
+      return this.$router.history.current.params.bookid
     }
   },
   components: {

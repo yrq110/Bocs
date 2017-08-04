@@ -1,0 +1,211 @@
+.plan {
+  margin: 0; 
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  & .container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: .3s all ease;
+    position: relative;
+    margin: 20px;
+    max-width: 80%;
+    background-color: #EFD171;
+
+    & .note {
+      position: relative;
+      padding: 20px 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 90%;
+      width: 100%;
+      background-color: #FFE882;
+
+      &:after {
+        content: '';
+        border-left: 10px solid #FFF1B4;
+        border-top: 10px solid #FFF1B4;
+        border-right: 10px solid #EFD171;
+        border-bottom: 10px solid #EFD171;
+        position: absolute;
+        right: 0px;
+        bottom: 0px;
+      }
+
+      & .info-page {
+        margin-top: 20px;
+        width: auto;
+
+        & .book {
+          display: flex;
+          justify-content: space-around;
+        }
+
+        & .cell {
+          margin: 15px auto;
+          padding-bottom: 5px;
+          border-bottom: 3px dashed black;
+          white-space: nowrap;
+
+          & .btn {
+            cursor: pointer;
+            position: relative;
+            display: inline-block;
+            padding: 0 10px;
+            margin: 10px 0;
+            line-height: 30px;
+            color: #a64;
+            background: #feb;
+            border: 5px solid #a64;
+            font-weight: bold;
+            transition: .3s all ease;
+
+            &:hover {
+              color: #feb;
+              background: #a64;
+            }
+          }
+
+          & .key {
+            position: relative;
+            display: inline-block;
+            padding: 0 10px;
+            margin: 10px 0;
+            line-height: 30px;
+            color: #feb;
+            background: #a64;
+            border: 5px solid #a64;
+            font-weight: bold;
+            transition: .3s all ease;
+          }
+
+          & .input {
+            position: relative;
+            right: 0; 
+            background: white; 
+            outline: none; 
+            border: 0 none;
+            font: inherit; 
+            text-align: left; 
+            color: #c66;
+            padding: 0 10px;
+            height: 40px;
+            box-sizing: border-box;
+            -webkit-appearance: none;
+
+            &::-webkit-inner-spin-button {
+              -webkit-appearance: none;
+            }
+
+            &::-webkit-outer-spin-button {
+              -webkit-appearance: none;
+            }
+          }
+
+          & .date {
+            width: 60px;
+          }
+        }
+      }
+
+      & .erase {
+        cursor: pointer;
+        width: 80px; height: 40px;
+        background: white;
+        position: relative;
+        transition: .3s all ease;
+
+        &:before {
+          content: '';
+          position: absolute;
+          left: -10px; top: 50%;
+          height: 36px; width: 10px;
+          background: grey;
+          transform: translateY(-50%);
+          border-top-left-radius: 10px;
+          border-bottom-left-radius: 10px;
+        }
+
+        &:after {
+          content: '';
+          position: absolute;
+          left: 0; top: 5px;
+          height: 5px; width: 100%;
+          background: blue;
+        }
+
+        & .banner {
+          position: absolute;
+          font-weight: bold;
+          white-space: nowrap;
+          bottom: 5px; left: 50%;
+          transform: translateX(-50%);
+        }
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+
+      & .pencil {
+        cursor: pointer;
+        position: relative;
+        background-color: #feb;
+        width: 120px;
+        height: 40px;
+        left: 5%;
+        top: 10px;
+        transition: .3s all ease;
+        // transform: translateX(-100%);
+
+        & .pencil-bottom{
+          position: absolute;
+          right: 0px;
+          background-color: #FF859F;
+          height: 100%;
+          width: 15px;
+          border-right: 5px solid #A9876E;
+        }
+
+        & .pencil-nip{
+          border-right: 40px solid #F3C6A9;
+          border-top: 20px solid transparent;
+          border-bottom: 20px solid transparent;
+          width: 0;
+          height: 0;
+          margin-left: -40px;
+
+          & .pencil-tip{
+            border-right: 10px solid #151822;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            height: 0px;
+            width: 0px;
+            left: -40px;
+            position: absolute;
+            bottom: 15px;
+          }
+        } 
+
+        & .text {
+          position: absolute;
+          width: 100%;
+          font-weight: bold;
+          text-align: center;
+          top: 50%;left: -10px;
+          // top: 50%; left: 50%;
+          transform: translateY(-50%);
+        }
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+}

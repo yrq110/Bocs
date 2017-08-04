@@ -58,6 +58,11 @@ export default new Router({
       component: NewPlan
     },
     {
+      path: '/newplan/:bookid',
+      name: 'NewPlanWithBook',
+      component: NewPlan
+    },
+    {
       path: '/plans/:planID',
       name: 'PlanDetail',
       component: PlanDetail

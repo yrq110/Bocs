@@ -3,7 +3,7 @@
     <top-nav />
     <div class="container">
       <plan-book-mark :data="newPlanText" @clickEvent="addNewPlan"/>
-      <template v-for="plan in plansData">
+      <template v-for="plan in plans">
         <plan-book-mark
           :data="plan"
           @clickEvent="goPlanDetail(plan.id)"
@@ -32,24 +32,10 @@ export default {
   },
   created: function () {
     this.$store.dispatch('flashPlans')
+    this.$store.dispatch('flashBooks')
   },
   methods: {
     addNewPlan: function () {
-      // this.$store.dispatch('addPlan', {
-      //   header: '权',
-      //   begin: '2017-7-10',
-      //   end: '2017-7-20',
-      //   page: 67,
-      //   rate: '40%',
-      //   bookID: 1478,
-      //   id: 1001
-      // })
-      // this.$router.push({
-      //   name: 'PlanDetail',
-      //   params: {
-      //     planID: 1000
-      //   }
-      // })
       this.$router.push({
         name: 'NewPlan'
       })
@@ -65,8 +51,22 @@ export default {
   },
   computed: {
     ...mapState({
-      plansData: function (state) {
-        return state.user.plans
+      plans: function (state) {
+        let plans = state.user.plans
+        if (typeof (plans) !== 'undefined') {
+          plans.map(e => {
+            // let plan = e
+            let book = state.user.books.filter(r => {
+              // console.log(plan)
+              return r.id === e.bookID
+            })
+            console.log(book)
+            e.header = book.length !== 0 ? book[0].title.slice(0, 1) : '无'
+          })
+        } else {
+          plans = []
+        }
+        return plans
       }
     })
   },

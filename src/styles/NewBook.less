@@ -9,7 +9,8 @@
   & .container {
     // cursor: pointer;
     position: relative;
-    width: 300px; 
+    min-width: 300px; 
+    max-width: 90%;
     height: 400px;
     margin-top: 30px;
     perspective: 1000px;
@@ -85,33 +86,20 @@
               display: none;
             }
 
-            .submit-icon, .reset-icon {
+            .submit-icon {
               position: absolute; top: 0; right: 0;
               color: rgba(0, 0, 0, 0.25);
               line-height: 40px; padding: 0 10px;
+              font-size: 40px;
               transition: all 0.5s;
               cursor: pointer;
+
+              // & .icon {
+              //   font-size: 40px;
+              // }
             }
 
             .active {color: #c66;}
-          }
-          
-          & div.load {
-            position: absolute; 
-            top: 0; left: 0; 
-            width: 100%; height: 40px;
-            transform: rotateX(-180deg) translateZ(20px);
-
-            & .loader {
-              animation: phase 1s infinite;
-            }
-          }
-
-          & div.result {
-            position: absolute; 
-            top: 0; left: 0; 
-            width: 100%; height: 40px;
-            transform: rotateX(-270deg) translateZ(20px);
           }
           
           &:hover {
@@ -122,29 +110,82 @@
         & .ready {
           transform: translateZ(-20px) rotateX(90deg);
         }
-
-        & .loading {
-          transform: translateZ(-20px) rotateX(180deg);
-        }
-
-        & .complete {
-          transform: translateZ(-20px) rotateX(270deg);
-        }
       }
 
+      & .loading {
+        width: 100%; height: 40px;
+        margin: 10px;
+        font-weight: bold;
+        text-align: center;
+        line-height: 40px;
+        background: #feb;
+        animation: phase 2s infinite;
+      }
+
+      & .info {
+        margin-top: 20px;
+        width: auto;
+
+        & .cell {
+          margin: 5px auto;
+
+          & .key {
+            position: relative;
+            display: inline-block;
+            padding: 0 10px;
+            margin: 5px 0;
+            line-height: 30px;
+            text-align: center;
+            color: #feb;
+            border: 5px solid #feb;
+            background: #a64;
+          }
+
+          & .value {
+            position: relative;
+            display: inline-block;
+            padding: 0 10px;
+            line-height: 30px;
+            color: #a64;
+            border: 5px solid #a64;
+            font-weight: bold;
+            transition: .3s all ease;
+
+            &:hover {
+              background: #a64;
+              color: #feb;
+            }
+          }
+        }
+      }
+      
       & .poster img{
         position: relative;
+        margin: 0;
         margin-top: 20px;
-        width: 350px; height: 0;        
+        max-width: 90%; 
+        // height: 0;        
+      }
+
+      & .error {
+        width: 100%;height: 40px;
+        margin-top: 20px;
+        color: white;
+        background: red;
+        line-height: 40px;
+        text-align: center;
+        font-weight: bold;
+        
       }
 
       & .next {
         cursor: pointer;
         position: relative;
         margin: 20px 0;
-        width: 100%; height: 40px;
+        width: 40%; height: 40px;
         line-height: 40px;
         text-align: center;
+        font-weight: bold;
         background: inherit;
         border: 5px solid #d95;
         color: #d95;
@@ -153,8 +194,15 @@
           background: #d95;
           color: white;
         }
-        
       }
+
+      & #expanImg {
+        position: fixed;
+        max-height: 100%;
+        max-width: 100%;
+        z-index: 999;
+      }
+
       & .fadeout {
         animation: fadeout 1s ease-in-out forwards;
       }
@@ -163,7 +211,7 @@
 
   @keyframes phase {
     50% {
-      background: #c66;
+      background: #ea5;
     }
   }
 
