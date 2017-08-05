@@ -42,7 +42,7 @@ export default {
       'addBook'
     ]),
     returnDesktop () {
-      console.log('click')
+      // console.log('click')
       this.$router.push({
         path: '/'
       })
@@ -69,7 +69,7 @@ export default {
     }),
     mainColor () {
       let color = this.colorArr[Math.floor(Math.random() * this.colorArr.length)]
-      console.log(color)
+      // console.log(color)
       return color
     }
   },

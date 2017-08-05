@@ -37,6 +37,11 @@
       <div class="details2"></div>
       <div class="details3"></div>
     </div>
+    <div class="footer">
+      2017 © <a href="https://github.com/yrq110/Bocs">yrq110</a>
+      <br>
+      Bocs is licensed under <a href="https://opensource.org/licenses/MIT">MIT</a>
+    </div>
     <i class="fa fa-github fa-4x icon-3d" @click="goGitHub"></i> 
   </div>
 </template>

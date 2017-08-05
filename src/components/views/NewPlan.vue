@@ -63,23 +63,33 @@ export default {
   },
   methods: {
     async newPlanDetail () {
+      let date = new Date()
+
+      // let endMonthValue = 1
+      document.querySelector('#end-month').value = document.querySelector('#end-month').value === '' ? date.getMonth() + 2 : document.querySelector('#end-month').value
+      document.querySelector('#end-day').value = document.querySelector('#end-day').value === '' ? date.getDay() - 1 : document.querySelector('#end-day').value
+      document.querySelector('#page').value = document.querySelector('#page').value === '' ? 0 : document.querySelector('#page').value
+
       let beginDate = document.querySelector('#begin-year').value + '-' + document.querySelector('#begin-month').value + '-' + document.querySelector('#begin-day').value
       let endDate = document.querySelector('#end-year').value + '-' + document.querySelector('#end-month').value + '-' + document.querySelector('#end-day').value
       let page = document.querySelector('#page').value
       let id = Math.floor(Math.random() * 10000)
-      await this.$store.dispatch('addPlan', {
-        id: id,
-        bookID: this.bookID,
-        begin: beginDate,
-        end: endDate,
-        page: page
-      })
-      this.$router.push({
-        name: 'PlanDetail',
-        params: {
-          planID: id
-        }
-      })
+
+      if (typeof (this.bookID) !== 'undefined') {
+        await this.$store.dispatch('addPlan', {
+          id: id,
+          bookID: this.bookID,
+          begin: beginDate,
+          end: endDate,
+          page: page
+        })
+        this.$router.push({
+          name: 'PlanDetail',
+          params: {
+            planID: id
+          }
+        })
+      }
     },
     getBookTitle (id) {
       let book = this.$store.state.user.books.filter(e => {

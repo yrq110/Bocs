@@ -149,12 +149,22 @@ export default {
   },
   methods: {
     async newBookDetail () {
-      let id = Math.floor(Math.random() * 10000)
-      let data = this.newBookData
-      await this.$store.dispatch('addBook', {
-        ...data,
-        id: id
+      let id
+      console.log(this.newBookData.title)
+      let newTitle = this.newBookData.title
+      let book = this.$store.state.user.books.filter(e => {
+        return e.title === newTitle
       })
+      if (book.length !== 0) {
+        id = book[0].id
+      } else {
+        id = Math.floor(Math.random() * 10000)
+        let data = this.newBookData
+        await this.$store.dispatch('addBook', {
+          ...data,
+          id: id
+        })
+      }
       this.$router.push({
         name: 'BookDetail',
         params: {
