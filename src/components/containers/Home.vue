@@ -41,8 +41,8 @@
       2017 © <a href="https://github.com/yrq110/Bocs">yrq110</a>
       <br>
       Bocs is licensed under <a href="https://opensource.org/licenses/MIT">MIT</a>
+      <i class="fa fa-github fa-4x icon-3d" @click="goGitHub"></i> 
     </div>
-    <i class="fa fa-github fa-4x icon-3d" @click="goGitHub"></i> 
   </div>
 </template>
 

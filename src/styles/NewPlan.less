@@ -1,6 +1,6 @@
 .plan {
   margin: 0; 
-  padding: 20px 0;
+  padding: 1.25rem 0;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -13,13 +13,13 @@
     align-items: center;
     transition: .3s all ease;
     position: relative;
-    margin: 20px;
+    margin: 1.25rem;
     max-width: 80%;
     background-color: #EFD171;
 
     & .note {
       position: relative;
-      padding: 20px 30px;
+      padding: 1.25rem 1.875rem;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -29,17 +29,17 @@
 
       &:after {
         content: '';
-        border-left: 10px solid #FFF1B4;
-        border-top: 10px solid #FFF1B4;
-        border-right: 10px solid #EFD171;
-        border-bottom: 10px solid #EFD171;
+        border-left: 0.625rem solid #FFF1B4;
+        border-top: 0.625rem solid #FFF1B4;
+        border-right: 0.625rem solid #EFD171;
+        border-bottom: 0.625rem solid #EFD171;
         position: absolute;
-        right: 0px;
-        bottom: 0px;
+        right: 0;
+        bottom: 0;
       }
 
       & .info-page {
-        margin-top: 20px;
+        margin-top: 1.25rem;
         width: auto;
 
         & .book {
@@ -47,12 +47,12 @@
           justify-content: space-around;
 
           & .title {
-            padding: 5px 10px;
+            padding: 0.3125rem 0.625rem;
             background: #feb;
             color: #a64;
             font-weight: bold;
             text-align: center;
-            border-left: 3px solid #a64;
+            border-left: 0.1875rem solid #a64;
             transition: .3s all ease;
 
             &:hover {
@@ -64,21 +64,21 @@
         }
 
         & .cell {
-          margin: 15px auto;
-          padding-bottom: 5px;
-          border-bottom: 3px dashed black;
+          margin: 0.9375rem auto;
+          padding-bottom: 0.3125rem;
+          border-bottom: 0.1875rem dashed black;
           white-space: nowrap;
 
           & .btn {
             cursor: pointer;
             position: relative;
             display: inline-block;
-            padding: 0 10px;
-            margin: 10px 0;
-            line-height: 30px;
+            padding: 0 0.625rem;
+            margin: 0.625rem 0;
+            line-height: 1.875rem;
             color: #a64;
             background: #feb;
-            border: 5px solid #a64;
+            border: 0.3125rem solid #a64;
             font-weight: bold;
             transition: .3s all ease;
 
@@ -91,12 +91,12 @@
           & .key {
             position: relative;
             display: inline-block;
-            padding: 0 10px;
-            margin: 10px 0;
-            line-height: 30px;
+            padding: 0 0.625rem;
+            margin: 0.625rem 0;
+            line-height: 1.875rem;
             color: #feb;
             background: #a64;
-            border: 5px solid #a64;
+            border: 0.3125rem solid #a64;
             font-weight: bold;
             transition: .3s all ease;
           }
@@ -110,8 +110,8 @@
             font: inherit; 
             text-align: left; 
             color: #c66;
-            padding: 0 10px;
-            height: 40px;
+            padding: 0 0.625rem;
+            height: 2.5rem;
             box-sizing: border-box;
             -webkit-appearance: none;
 
@@ -125,14 +125,14 @@
           }
 
           & .date {
-            width: 60px;
+            width: 3.75rem;
           }
         }
       }
 
       & .erase {
         cursor: pointer;
-        width: 80px; height: 40px;
+        width: 5rem; height: 2.5rem;
         background: white;
         position: relative;
         transition: .3s all ease;
@@ -140,19 +140,19 @@
         &:before {
           content: '';
           position: absolute;
-          left: -10px; top: 50%;
-          height: 36px; width: 10px;
+          left: -0.625rem; top: 50%;
+          height: 2.25rem; width: 0.625rem;
           background: grey;
           transform: translateY(-50%);
-          border-top-left-radius: 10px;
-          border-bottom-left-radius: 10px;
+          border-top-left-radius: 0.625rem;
+          border-bottom-left-radius: 0.625rem;
         }
 
         &:after {
           content: '';
           position: absolute;
-          left: 0; top: 5px;
-          height: 5px; width: 100%;
+          left: 0; top: 0.3125rem;
+          height: 0.3125rem; width: 100%;
           background: blue;
         }
 
@@ -160,7 +160,7 @@
           position: absolute;
           font-weight: bold;
           white-space: nowrap;
-          bottom: 5px; left: 50%;
+          bottom: 0.3125rem; left: 50%;
           transform: translateX(-50%);
         }
 
@@ -173,38 +173,38 @@
         cursor: pointer;
         position: relative;
         background-color: #feb;
-        width: 120px;
-        height: 40px;
+        width: 7.5rem;
+        height: 2.5rem;
         left: 5%;
-        top: 10px;
+        top: 0.625rem;
         transition: .3s all ease;
 
         & .pencil-bottom{
           position: absolute;
-          right: 0px;
+          right: 0;
           background-color: #FF859F;
           height: 100%;
-          width: 15px;
-          border-right: 5px solid #A9876E;
+          width: 0.9375rem;
+          border-right: 0.3125rem solid #A9876E;
         }
 
         & .pencil-nip{
-          border-right: 40px solid #F3C6A9;
-          border-top: 20px solid transparent;
-          border-bottom: 20px solid transparent;
+          border-right: 2.5rem solid #F3C6A9;
+          border-top: 1.25rem solid transparent;
+          border-bottom: 1.25rem solid transparent;
           width: 0;
           height: 0;
-          margin-left: -40px;
+          margin-left: -2.5rem;
 
           & .pencil-tip{
-            border-right: 10px solid #151822;
-            border-top: 5px solid transparent;
-            border-bottom: 5px solid transparent;
-            height: 0px;
-            width: 0px;
-            left: -40px;
+            border-right: 0.625rem solid #151822;
+            border-top: 0.3125rem solid transparent;
+            border-bottom: 0.3125rem solid transparent;
+            height: 0;
+            width: 0;
+            left: -2.5rem;
             position: absolute;
-            bottom: 15px;
+            bottom: 0.9375rem;
           }
         } 
 
@@ -213,8 +213,7 @@
           width: 100%;
           font-weight: bold;
           text-align: center;
-          top: 50%;left: -10px;
-          // top: 50%; left: 50%;
+          top: 50%;left: -0.625rem;
           transform: translateY(-50%);
         }
         &:hover {

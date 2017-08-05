@@ -1,9 +1,20 @@
-# bocs
+# Bocs
 
-> A book management tool
+> 一个小巧的阅读管理工具
 
-## Build Setup
+## 运行
 
+## 预览
+
+## 技术栈
+
+## vuex
+
+所有操作通过action方式提交
+
+## 响应式
+
+## 其他
 ``` bash
 # install dependencies
 npm install

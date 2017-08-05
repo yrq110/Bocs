@@ -1,35 +1,35 @@
 .bookmark {
   cursor: pointer;
   user-select:none;
-  width: 100px; height: 300px;
-  margin: 10px; margin-top: 50px;
-  padding: 10px;
+  width: 6.25rem; height: 18.75rem;
+  margin: 0.625rem; margin-top: 3.125rem;
+  padding: 0.625rem;
   background: #c96;
   position: relative;
   transition: .3s all ease;
   transform-origin: 50% 0;
-  box-shadow: 10px 10px 10px -5px black;
+  box-shadow: 0.625rem 0.625rem 0.625rem -0.3125rem black;
 
   & .nail {
     position: absolute;
-    top: 5px; 
-    width: 10px; height: 10px;
+    top: 0.3125rem; 
+    width: 0.625rem; height: 0.625rem;
     background: white;
     border-radius: 50%;
-    border: 5px solid #99a;
+    border: 0.3125rem solid #99a;
     opacity: 0;
-    transform: translateY(-10px);
+    transform: translateY(-0.625rem);
     transition: .3s all ease;
   }
 
   & .header {
     margin: 0 auto;
-    width: 90px; height: 90px;
-    border-radius: 45px;
+    width: 5.625rem; height: 5.625rem;
+    border-radius: 2.8125rem;
     background: #feb;
     text-align: center;
-    font-size: 50px;
-    line-height: 90px;
+    font-size: 3.125rem;
+    line-height: 5.625rem;
   }
 
   & .info {
@@ -37,8 +37,8 @@
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-around;
-    top: 110px; left: 10px; right: 10px;
-    bottom: 10px;
+    top: 6.875rem; left: 0.625rem; right: 0.625rem;
+    bottom: 0.625rem;
 
     & div {
       margin: 0;
@@ -47,9 +47,9 @@
     }
 
     & span {
-      margin: 10px;
-      width: 10px; height: 10px;
-      border-radius: 5px;
+      margin: 0.625rem;
+      width: 0.625rem; height: 0.625rem;
+      border-radius: 0.3125rem;
     }
   }
 
@@ -57,28 +57,28 @@
   &:before {
     position: absolute;
     content: "";
-    border: 2px dotted #444;
+    border: 0.125rem dotted #444;
     border-bottom: none;
     border-left: none;
-    width: 50px;
-    height: 50px;
-    top: -25px;
+    width: 3.125rem;
+    height: 3.125rem;
+    top: -1.5625rem;
     left: 50%;
-    margin-left: -25px;
+    margin-left: -1.5625rem;
     transform: rotate(-45deg);
-    border-radius: 0 5px 0 0;
+    border-radius: 0 0.3125rem 0 0;
   }
 
   // nail
   &:after {
     position: absolute;
     content: "";
-    width: 10px;
-    height: 10px;
+    width: 0.625rem;
+    height: 0.625rem;
     border-radius: 50%;
-    top: -35px;
+    top: -2.1875rem;
     left: 50%;
-    margin-left: -4px;
+    margin-left: -0.25rem;
     background: #4c4c4c;
   }
 

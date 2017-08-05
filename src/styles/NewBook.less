@@ -1,6 +1,6 @@
 .new-book {
   margin: 0; 
-  padding-top: 20px;
+  padding-top: 1.25rem;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -9,11 +9,11 @@
   & .container {
     // cursor: pointer;
     position: relative;
-    min-width: 300px; 
+    min-width: 18.75rem; 
     max-width: 90%;
-    height: 400px;
-    margin-top: 30px;
-    perspective: 1000px;
+    height: 25rem;
+    margin-top: 1.875rem;
+    perspective: 62.5rem;
     transform-style: preserve-3d;
     transition: .3s all ease;
 
@@ -35,19 +35,19 @@
       & .search-bar {
         position: relative;
         width: 100%; margin: 0 auto;
-        perspective: 1000px;
+        perspective: 62.5rem;
 
         & form {
           position: relative;
-          transform: translateZ(-20px);
+          transform: translateZ(-1.25rem);
           transform-style: preserve-3d;
-          height: 40px;
+          height: 2.5rem;
           transition: all 0.35s;
           text-align: center;
 
           .cuboid-text {
             margin: 0;
-            line-height: 40px;
+            line-height: 2.5rem;
             background: #d95;
           }
 
@@ -59,15 +59,15 @@
           & div.text {
             position: absolute; 
             top: 0; left: 0; 
-            width: 100%; height: 40px;
-            transform: rotateX(0deg) translateZ(20px);
+            width: 100%; height: 2.5rem;
+            transform: rotateX(0deg) translateZ(1.25rem);
           }
           
           & div.submit {
             position: absolute; 
             top: 0; left: 0; 
-            width: 100%; height: 40px;
-            transform: rotateX(-90deg) translateZ(20px);
+            width: 100%; height: 2.5rem;
+            transform: rotateX(-90deg) translateZ(1.25rem);
 
             #title {
               background: white; 
@@ -77,8 +77,8 @@
               text-align: left; 
               color: #c66;
               display: block;
-              padding: 0 10px;
-              width: 100%; height: 40px;
+              padding: 0 0.625rem;
+              width: 100%; height: 2.5rem;
               box-sizing: border-box;
             }
 
@@ -87,67 +87,63 @@
             }
 
             .submit-icon {
+              cursor: pointer;
               position: absolute; top: 0; right: 0;
               color: rgba(0, 0, 0, 0.25);
-              line-height: 40px; padding: 0 10px;
-              font-size: 40px;
+              line-height: 2.5rem; padding: 0 0.625rem;
+              font-size: 2.5rem;
               transition: all 0.5s;
-              cursor: pointer;
-
-              // & .icon {
-              //   font-size: 40px;
-              // }
             }
 
             .active {color: #c66;}
           }
           
           &:hover {
-            transform: translateZ(-20px) rotateX(90deg);
+            transform: translateZ(-1.25rem) rotateX(90deg);
           }
         }
 
         & .ready {
-          transform: translateZ(-20px) rotateX(90deg);
+          transform: translateZ(-1.25rem) rotateX(90deg);
         }
       }
 
       & .loading {
-        width: 100%; height: 40px;
-        margin: 10px;
+        width: 100%; height: 2.5rem;
+        margin: 0.625rem;
         font-weight: bold;
         text-align: center;
-        line-height: 40px;
+        line-height: 2.5rem;
         background: #feb;
         animation: phase 2s infinite;
       }
 
       & .info {
-        margin-top: 20px;
+        margin-top: 1.25rem;
         width: auto;
 
         & .cell {
-          margin: 5px auto;
+          margin: 0.3125rem auto;
 
           & .key {
             position: relative;
             display: inline-block;
-            padding: 0 10px;
-            margin: 5px 0;
-            line-height: 30px;
+            padding: 0 0.625rem;
+            margin: 0.3125rem 0;
+            line-height: 1.875rem;
             text-align: center;
             color: #feb;
-            border: 5px solid #feb;
+            border: 0.3125rem solid #feb;
             background: #a64;
           }
 
           & .value {
             position: relative;
             display: inline-block;
-            padding: 0 10px;
-            line-height: 30px;
+            padding: 0 0.625rem;
+            line-height: 1.875rem;
             color: #a64;
-            border: 5px solid #a64;
+            border: 0.3125rem solid #a64;
             font-weight: bold;
             transition: .3s all ease;
 
@@ -162,17 +158,16 @@
       & .poster img{
         position: relative;
         margin: 0;
-        margin-top: 20px;
+        margin-top: 1.25rem;
         max-width: 90%; 
-        // height: 0;        
       }
 
       & .error {
-        width: 100%;height: 40px;
-        margin-top: 20px;
+        width: 100%;height: 2.5rem;
+        margin-top: 1.25rem;
         color: white;
         background: red;
-        line-height: 40px;
+        line-height: 2.5rem;
         text-align: center;
         font-weight: bold;
         
@@ -181,13 +176,13 @@
       & .next {
         cursor: pointer;
         position: relative;
-        margin: 20px 0;
-        width: 40%; height: 40px;
-        line-height: 40px;
+        margin: 1.25rem 0;
+        width: 40%; height: 2.5rem;
+        line-height: 2.5rem;
         text-align: center;
         font-weight: bold;
         background: inherit;
-        border: 5px solid #d95;
+        border: 0.3125rem solid #d95;
         color: #d95;
         transition: .3s all ease;
         &:hover {
@@ -217,7 +212,7 @@
 
   @keyframes fadeout {
     100% {
-      height: 400px;
+      height: 25rem;
     }
   }
 }
