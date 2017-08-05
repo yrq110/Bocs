@@ -2,40 +2,32 @@
 
 > 一个小巧的阅读管理工具
 
+[线上Demo](http://bocs.leanapp.cn)
+
 ## 运行
+
+```bash
+git clone git@github.com:yrq110/Bocs.git
+
+cd bocs
+
+npm install 
+
+npm run dev
+```
 
 ## 预览
 
-## 技术栈
+## 所用技术与库
 
-## vuex
-
+* vue + vuex + vue-router (vue全家桶)
+* axios (网络请求)
+* lockr (本地存储)
+* vue-lazyload (图片懒加载)
+* webpack
+* less
 所有操作通过action方式提交
 
-## 响应式
-
 ## 其他
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
-```
-
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+* 所有数据的CURD操作通过actions触发
+* 使用flex与rem实现响应式布局

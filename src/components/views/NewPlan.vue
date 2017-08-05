@@ -92,10 +92,14 @@ export default {
       }
     },
     getBookTitle (id) {
+      // console.log(this.$store.state.user.books)
+      if (typeof (this.$store.state.user.books) === 'undefined') {
+        return 'null'
+      }
       let book = this.$store.state.user.books.filter(e => {
         return e.id === id
       })
-      console.log(book)
+      // console.log(book)
       return book.length !== 0 ? book[0].title : 'null'
     },
     selectBook () {
