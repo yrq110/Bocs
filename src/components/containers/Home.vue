@@ -38,10 +38,10 @@
       <div class="details3"></div>
     </div>
     <div class="footer">
-      2017 © <a href="https://github.com/yrq110/Bocs">yrq110</a>
+      2017 © <a href="https://github.com/yrq110">yrq110</a>
       <br>
       Bocs is licensed under <a href="https://opensource.org/licenses/MIT">MIT</a>
-      <i class="fa fa-github fa-4x icon-3d" @click="goGitHub"></i> 
+      <i class="fa fa-github fa-4x icon-3d" @click="goRepo"></i> 
     </div>
   </div>
 </template>
@@ -65,8 +65,8 @@ export default {
         path: '/plans'
       })
     },
-    goGitHub: function () {
-      location.href = 'https://github.com/yrq110'
+    goRepo: function () {
+      location.href = 'https://github.com/yrq110/Bocs'
     }
   },
   components: {
