@@ -23,10 +23,9 @@ export default {
     return {
       newPlanText: {
         header: '新',
-        begin: '于何时',
-        end: '于何时',
-        page: '何地',
-        rate: '几何'
+        begin: '何时',
+        end: '何时',
+        page: '几何'
       }
     }
   },
