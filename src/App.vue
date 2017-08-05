@@ -25,3 +25,7 @@ export default {
   })
 }
 </script>
+
+<style lang="less">
+ @import './styles/common/iconFont.less';
+</style>
