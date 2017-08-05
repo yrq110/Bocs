@@ -1,0 +1,3 @@
+src/router/* linguist-vendored
+src/store/* linguist-vendored
+src/styles/* linguist-vendored
