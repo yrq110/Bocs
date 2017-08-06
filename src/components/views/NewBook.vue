@@ -4,18 +4,15 @@
     <div class="container">
       <div class="search-page section">
         <div class="search-bar">
-          <form>
+          <div class="form">
             <div class="text">
               <p class="cuboid-text">搜索图书</p>
             </div>
             <div class="submit">
-              <label for="submit" class="submit-icon">
-                <i class="material-icons" style="font-size:40px">search</i>
-              </label>
+              <i class="material-icons submit-icon" style="font-size:40px" @click="searchEvent">search</i>
               <input type="text" id="title" class="cuboid-text" placeholder="输入书名" autocomplete="off"/>
-              <input type="submit" id="submit" />
             </div>  
-          </form>
+          </div>
         </div>
         <div class="loading" v-show="isLoading">搜索中...</div>
         <div class="poster">
@@ -87,9 +84,8 @@ export default {
   },
   mounted: function () {
     let titleInput = document.querySelector('#title')
-    let form = document.querySelector('.search-bar form')
+    let form = document.querySelector('.search-bar .form')
     let submitBtn = document.querySelector('.submit-icon')
-    // let poster = document.querySelector('.poster img')
 
     titleInput.addEventListener('focus', function () {
       form.classList.add('ready')
@@ -114,35 +110,12 @@ export default {
         }
       }
     })
-
     let vm = this
-    form.addEventListener('submit', function () {
-      vm.errMsg = ''
-      vm.isLoading = true
-      let str = encodeURI(document.querySelector('#title').value)
-      let url = api + str
-      vm.$http.get(url)
-        .then((e) => {
-          // console.log(e.data)
-          if (vm.isEmptyObject(e.data)) {
-            vm.loadSuccess = false
-            vm.errMsg = '没有找到唉_(:△」∠)_'
-          } else {
-            vm.newBookData = e.data
-            vm.newBookData.title = vm.newBookData.title.replace(/（.*）/, '')
-            console.log(vm.newBookData.title)
-            vm.imgURL = vm.getOriginalImage(e.data.cover_img)
-            vm.newBookData.cover_img = vm.getOriginalImage(e.data.cover_img)
-            vm.loadSuccess = true
-            // console.log(vm.newBookData)
-          }
-          vm.isLoading = false
-        })
-        .catch((error) => {
-          console.log(error)
-          vm.isLoading = false
-        })
-      return false
+    document.body.addEventListener('keypress', function (e) {
+      if (e.keyCode === 13) {
+        event.preventDefault()
+        vm.searchEvent()
+      }
     })
   },
   computed: {
@@ -150,7 +123,6 @@ export default {
   methods: {
     async newBookDetail () {
       let id
-      console.log(this.newBookData.title)
       let newTitle = this.newBookData.title
       let book = this.$store.state.user.books.filter(e => {
         return e.title === newTitle
@@ -171,6 +143,30 @@ export default {
           bookID: id
         }
       })
+    },
+    searchEvent () {
+      this.errMsg = ''
+      this.isLoading = true
+      let str = encodeURI(document.querySelector('#title').value)
+      let url = api + str
+      this.$http.get(url)
+        .then((e) => {
+          if (this.isEmptyObject(e.data)) {
+            this.loadSuccess = false
+            this.errMsg = '没有找到唉_(:△」∠)_'
+          } else {
+            this.newBookData = e.data
+            this.newBookData.title = this.newBookData.title.replace(/（.*）/, '')
+            this.imgURL = this.getOriginalImage(e.data.cover_img)
+            this.newBookData.cover_img = this.getOriginalImage(e.data.cover_img)
+            this.loadSuccess = true
+          }
+          this.isLoading = false
+        })
+        .catch((error) => {
+          console.log(error)
+          this.isLoading = false
+        })
     },
     imgClick () {
       console.log('img click')
