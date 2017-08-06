@@ -37,7 +37,7 @@ npm run dev
 ## 特性
 
 * 数据持久化使用localStorage
-* 组件内均通过actions触发mutation修改state
+* 组件内均通过action触发mutation修改state
 * 使用flex与rem实现响应式界面
 
 ## 协议
