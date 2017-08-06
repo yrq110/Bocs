@@ -123,10 +123,16 @@ export default {
   methods: {
     async newBookDetail () {
       let id
+      let book
       let newTitle = this.newBookData.title
-      let book = this.$store.state.user.books.filter(e => {
-        return e.title === newTitle
-      })
+      // console.log(this.$store.state.user.books)
+      if (typeof (this.$store.state.user.books) !== 'undefined') {
+        book = this.$store.state.user.books.filter(e => {
+          return e.title === newTitle
+        })
+      } else {
+        book = []
+      }
       if (book.length !== 0) {
         id = book[0].id
       } else {

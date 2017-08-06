@@ -78,15 +78,21 @@ const mutations = {
     state.plans = lockr.get('plans')
   },
   [types.ADD_BOOK] (state, book) {
-    if (state.books.filter(e => e.id === book.id).length === 0) {
+    if (typeof (state.books) === 'undefined') {
       state.books = [
-        ...state.books,
         book
       ]
-      lockr.set('books', state.books)
     } else {
-      state.alertMessage = '已添加'
+      if (state.books.filter(e => e.id === book.id).length === 0) {
+        state.books = [
+          ...state.books,
+          book
+        ]
+      } else {
+        state.alertMessage = '已添加'
+      }
     }
+    lockr.set('books', state.books)
   },
   [types.DELETE_BOOK] (state, bookID) {
     state.books = state.books.filter(e => e.id !== bookID)
@@ -100,15 +106,21 @@ const mutations = {
     })
   },
   [types.ADD_PLAN] (state, plan) {
-    if (state.plans.filter(e => e.id === plan.id).length === 0) {
+    if (typeof (state.plans) === 'undefined') {
       state.plans = [
-        ...state.plans,
         plan
       ]
-      lockr.set('plans', state.plans)
     } else {
-      state.alertMessage = '已添加'
+      if (state.plans.filter(e => e.id === plan.id).length === 0) {
+        state.plans = [
+          ...state.plans,
+          plan
+        ]
+      } else {
+        state.alertMessage = '已添加'
+      }
     }
+    lockr.set('plans', state.plans)
   },
   [types.DELETE_PLAN] (state, planID) {
     state.plans = state.plans.filter(e => e.id !== planID)

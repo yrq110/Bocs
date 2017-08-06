@@ -56,7 +56,7 @@ export default {
     let date = new Date()
     document.querySelector('#begin-year').value = date.getFullYear()
     document.querySelector('#begin-month').value = date.getMonth() + 1
-    document.querySelector('#begin-day').value = date.getDay() - 1
+    document.querySelector('#begin-day').value = date.getDate()
     document.querySelector('#end-year').value = date.getFullYear()
 
     this.hasBook = typeof (this.$router.history.current.params.bookid) !== 'undefined'
@@ -64,10 +64,8 @@ export default {
   methods: {
     async newPlanDetail () {
       let date = new Date()
-
-      // let endMonthValue = 1
       document.querySelector('#end-month').value = document.querySelector('#end-month').value === '' ? date.getMonth() + 2 : document.querySelector('#end-month').value
-      document.querySelector('#end-day').value = document.querySelector('#end-day').value === '' ? date.getDay() - 1 : document.querySelector('#end-day').value
+      document.querySelector('#end-day').value = document.querySelector('#end-day').value === '' ? date.getDate() + 1 : document.querySelector('#end-day').value
       document.querySelector('#page').value = document.querySelector('#page').value === '' ? 0 : document.querySelector('#page').value
 
       let beginDate = document.querySelector('#begin-year').value + '-' + document.querySelector('#begin-month').value + '-' + document.querySelector('#begin-day').value
