@@ -16,18 +16,18 @@ npm install
 npm run dev
 ```
 
-## 预览
+## 首页
 
-## 所用技术与库
+![](https://github.com/yrq110/Bocs/blob/master/screenshots/home.png)
 
-* vue + vuex + vue-router (vue全家桶)
+## 技术与库
+
+* vue + vuex + vue-router
+* less + webpack
 * axios (网络请求)
 * lockr (本地存储)
 * vue-lazyload (图片懒加载)
-* webpack
-* less
-所有操作通过action方式提交
 
-## 其他
-* 所有数据的CURD操作通过actions触发
-* 使用flex与rem实现响应式布局
+## 特性
+* 组件内均通过actions触发mutation修改state
+* 使用flex与rem实现响应式界面
