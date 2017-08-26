@@ -4,14 +4,14 @@
     <div class="container">
       <div class="search-page section">
         <div class="search-bar">
-          <div class="form">
+          <div class="form" ref="form">
             <div class="text">
               <p class="cuboid-text">搜索图书</p>
             </div>
             <div class="submit">
-              <i class="material-icons submit-icon" style="font-size:40px" @click="searchEvent">search</i>
-              <input type="text" id="title" class="cuboid-text" placeholder="输入书名" autocomplete="off"/>
-            </div>  
+              <i class="material-icons submit-icon" ref="submitBtn" style="font-size:40px" @click="searchEvent">search</i>
+              <input type="text" ref="title" id="title" class="cuboid-text" placeholder="输入书名" autocomplete="off"/>
+            </div>
           </div>
         </div>
         <div class="loading" v-show="isLoading">搜索中...</div>
@@ -47,7 +47,7 @@
           添加
         </div>
         <div class="expand">
-          <img 
+          <img
             id="expandImg"
             v-lazy="imgURL"
             v-show="isExpand"
@@ -83,9 +83,9 @@ export default {
     }
   },
   mounted: function () {
-    let titleInput = document.querySelector('#title')
-    let form = document.querySelector('.search-bar .form')
-    let submitBtn = document.querySelector('.submit-icon')
+    let titleInput = this.$refs.title
+    let form = this.$refs.form
+    let submitBtn = this.$refs.submitBtn
 
     titleInput.addEventListener('focus', function () {
       form.classList.add('ready')
@@ -153,7 +153,7 @@ export default {
     searchEvent () {
       this.errMsg = ''
       this.isLoading = true
-      let str = encodeURI(document.querySelector('#title').value)
+      let str = encodeURI(this.$refs.title.value)
       let url = api + str
       this.$http.get(url)
         .then((e) => {

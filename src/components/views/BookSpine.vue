@@ -17,10 +17,6 @@ export default {
     }
   },
   mounted () {
-    // var fy = fitty('.fit', {
-    //   minSize: 16,
-    //   maxSize: 32
-    // })
   },
   props: {
     title: {

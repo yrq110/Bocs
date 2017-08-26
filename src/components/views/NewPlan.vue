@@ -13,19 +13,19 @@
           </div>
           <div class="cell">
             <div class="key">起始日期</div>
-            <input type="number" id="begin-year" class="input date" placeholder="年" autocomplete="off"/> -
-            <input type="number" id="begin-month" class="input date" placeholder="月" autocomplete="off"/> -
-            <input type="number" id="begin-day" class="input date" placeholder="日" autocomplete="off"/>
+            <input type="number" id="begin-year" ref="beginYear" class="input date" placeholder="年" autocomplete="off"/> -
+            <input type="number" id="begin-month" ref="beginMonth" class="input date" placeholder="月" autocomplete="off"/> -
+            <input type="number" id="begin-day" ref="beginDay" class="input date" placeholder="日" autocomplete="off"/>
           </div>
           <div class="cell">
             <div class="key">截止日期</div>
-            <input type="number" id="end-year" class="input date" placeholder="年" autocomplete="off"/> -
-            <input type="number" id="end-month" class="input date" placeholder="月" autocomplete="off"/> -
-            <input type="number" id="end-day" class="input date" placeholder="日" autocomplete="off"/>
+            <input type="number" id="end-year" ref="endYear" class="input date" placeholder="年" autocomplete="off"/> -
+            <input type="number" id="end-month" ref="endMonth" class="input date" placeholder="月" autocomplete="off"/> -
+            <input type="number" id="end-day" ref="endDay" class="input date" placeholder="日" autocomplete="off"/>
           </div>
           <div class="cell">
             <div class="key">页数</div>
-            <input type="number" id="page" class="input" placeholder="输入已读页数" autocomplete="off"/>
+            <input type="number" id="page" ref="page" class="input" placeholder="输入已读页数" autocomplete="off"/>
           </div>
         </div>
         <div class="pencil">
@@ -54,23 +54,23 @@ export default {
   },
   mounted () {
     let date = new Date()
-    document.querySelector('#begin-year').value = date.getFullYear()
-    document.querySelector('#begin-month').value = date.getMonth() + 1
-    document.querySelector('#begin-day').value = date.getDate()
-    document.querySelector('#end-year').value = date.getFullYear()
+    this.$refs.beginYear.value = date.getFullYear()
+    this.$refs.beginMonth.value = date.getMonth() + 1
+    this.$refs.beginDay.value = date.getDate()
+    this.$refs.endYear.value = date.getFullYear()
 
     this.hasBook = typeof (this.$router.history.current.params.bookid) !== 'undefined'
   },
   methods: {
     async newPlanDetail () {
       let date = new Date()
-      document.querySelector('#end-month').value = document.querySelector('#end-month').value === '' ? date.getMonth() + 2 : document.querySelector('#end-month').value
-      document.querySelector('#end-day').value = document.querySelector('#end-day').value === '' ? date.getDate() + 1 : document.querySelector('#end-day').value
-      document.querySelector('#page').value = document.querySelector('#page').value === '' ? 0 : document.querySelector('#page').value
+      if (this.$refs.endMonth.value === '') this.$refs.endMonth.value = date.getMonth() + 2
+      if (this.$refs.endDay.value === '') this.$refs.endDay.value = date.getDate() + 1
+      if (this.$refs.page.value === '') this.$refs.page.value = 0
 
-      let beginDate = document.querySelector('#begin-year').value + '-' + document.querySelector('#begin-month').value + '-' + document.querySelector('#begin-day').value
-      let endDate = document.querySelector('#end-year').value + '-' + document.querySelector('#end-month').value + '-' + document.querySelector('#end-day').value
-      let page = document.querySelector('#page').value
+      let beginDate = this.$refs.beginYear.value + '-' + this.$refs.beginMonth.value + '-' + this.$refs.beginDay.value
+      let endDate = this.$refs.endYear.value + '-' + this.$refs.endMonth.value + '-' + this.$refs.endDay.value
+      let page = this.$refs.page.value
       let id = Math.floor(Math.random() * 10000)
 
       if (typeof (this.bookID) !== 'undefined') {

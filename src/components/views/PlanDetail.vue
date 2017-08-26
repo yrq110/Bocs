@@ -15,14 +15,14 @@
           </div>
           <div class="cell">
             <div class="key">终止日期</div>
-            <input type="number" id="end-year" class="input" placeholder="年" autocomplete="off" v-show="isEditing"/>
-            <input type="number" id="end-month" class="input" placeholder="月" autocomplete="off" v-show="isEditing"/>
-            <input type="number" id="end-day" class="input" placeholder="日" autocomplete="off" v-show="isEditing"/>
+            <input type="number" id="end-year" ref="endYear" class="input" placeholder="年" autocomplete="off" v-show="isEditing"/>
+            <input type="number" id="end-month" ref="endMonth" class="input" placeholder="月" autocomplete="off" v-show="isEditing"/>
+            <input type="number" id="end-day" ref="endDay" class="input" placeholder="日" autocomplete="off" v-show="isEditing"/>
             <div class="value" v-show="!isEditing">{{ currentPlanData.end }}</div>
           </div>
           <div class="cell">
             <div class="key">页数</div>
-            <input type="number" id="page" class="input" autocomplete="off" v-show="isEditing"/>
+            <input type="number" id="page" ref="page" class="input" autocomplete="off" v-show="isEditing"/>
             <div class="value" v-show="!isEditing">{{ currentPlanData.page }}</div>
           </div>
         </div>
@@ -71,16 +71,16 @@ export default {
     },
     editPlan () {
       if (this.isEditing) {
-        let endDate = document.querySelector('#end-year').value + '-' + document.querySelector('#end-month').value + '-' + document.querySelector('#end-day').value
-        let page = document.querySelector('#page').value
+        let endDate = this.$refs.endYear.value + '-' + this.$refs.endMonth.value + '-' + this.$refs.endDay.value
+        let page = this.$refs.page.value
         this.currentPlanData.end = endDate
         this.currentPlanData.page = page
         this.$store.dispatch('updatePlan', this.currentPlanData)
       } else {
-        document.querySelector('#end-year').value = this.currentPlanData.end.split('-')[0]
-        document.querySelector('#end-month').value = this.currentPlanData.end.split('-')[1]
-        document.querySelector('#end-day').value = this.currentPlanData.end.split('-')[2]
-        document.querySelector('#page').value = this.currentPlanData.page
+        this.$refs.endYear.value = this.currentPlanData.end.split('-')[0]
+        this.$refs.endMonth.value = this.currentPlanData.end.split('-')[1]
+        this.$refs.endDay.value = this.currentPlanData.end.split('-')[2]
+        this.$refs.page.value = this.currentPlanData.page
       }
       this.isEditing = !this.isEditing
     },
